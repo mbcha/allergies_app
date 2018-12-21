@@ -1,0 +1,13 @@
+<div class="create-user-country">
+  <form id="form">
+    <input type="text" class="form-control search-input", placeholder="Where are you?">
+  </form>
+
+  <ul class="results">
+    <% @countries.each do |country| %>
+    <li class='hidden'>
+      <%= link_to country.name, country_user_countries_path(country), method: :post %>
+    </li>
+    <% end %>
+  </ul>
+</div>

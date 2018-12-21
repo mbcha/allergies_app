@@ -1,0 +1,17 @@
+<div class="create-user-allergy">
+<%= form_tag country_user_allergies_path(@country), id: "form", method: :post do %>
+  <%= text_field_tag :allergy_name,
+    params[:allergy_name],
+    class: "form-control search-input",
+    placeholder: "Add allergy"
+  %>
+<% end %>
+
+  <ul class="results allergy-results">
+    <% @allergies.each do |allergy| %>
+      <li class="hidden">
+      <%= link_to allergy.name, country_allergy_user_allergies_path(@country, allergy), method: :post %>
+      </li>
+    <% end %>
+  </ul>
+</div>

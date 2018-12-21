@@ -1,0 +1,34 @@
+<h1><%= @user.username %></h1>
+
+<!-- let user change language if country has more than one -->
+<% @country = @user_countries.all.order("updated_at").last.country %>
+<% code = @country.language_code.split(", ") %>
+<h2><%= @country.name %></h2>
+
+<% @language = Language.find_by_code(@country.language_code) %>
+<%= @language.name %>
+
+<%= link_to "Change Country", countries_path %>
+
+<!-- show user allergies in a list -->
+<ul>
+  <% @user_allergies.each do |user_allergy| %>
+  <% allergy = Allergy.find(user_allergy.allergy.id) %>
+  <% @translation = Translation.where("allergy_id = #{allergy.id} AND language_id = #{@language.id}").first %>
+  <% if @translation %>
+  <li>
+    <%= link_to allergy.name, translation_path(@translation) %>
+  </li>
+  <% else %>
+  <li>
+    <%= link_to allergy.name, country_allergy_path(@country, allergy) + "/#googtrans(original|#{@language.code})", class: "link-to-translation" %>
+  </li>
+  <% end %>
+  <% end %>
+</ul>
+
+<%= link_to(allergies_path) do %>
+<i class="fas fa-plus btn"></i>
+<% end %>
+
+<%= link_to "Emergency Contacts", user_contacts_path(@user) %>
