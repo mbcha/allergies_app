@@ -1,0 +1,41 @@
+.countries-container {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+.create-user-country {
+  flex-grow: 1;
+}
+.country-results {
+  a {
+    color: black;
+    &:hover {
+      text-decoration: none;
+      color: gray;
+    }
+  }
+}
+.country-form {
+  width: 400px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.previous-user-countries {
+  width: auto;
+}
+.previous-countries {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p {
+    padding: 0 10px;
+    a {
+    color: red;
+    &:hover {
+      text-decoration: none;
+      color: red;
+      opacity: 0.5;
+    }
+  }
+  }
+}

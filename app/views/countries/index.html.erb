@@ -1,13 +1,43 @@
-<div class="create-user-country">
-  <form id="form">
-    <input type="text" class="form-control search-input", placeholder="Where are you?">
-  </form>
+<div class="container countries-container">
 
-  <ul class="results">
-    <% @countries.each do |country| %>
-    <li class='hidden'>
-      <%= link_to country.name, country_user_countries_path(country), method: :post %>
-    </li>
+  <!-- if logged in, give option to choose a country -->
+  <% if user_signed_in? %>
+  <div class="create-user-country">
+    <form id="form">
+      <input type="text" class="form-control search-input country-form", placeholder="Where are you?", autocomplete="off">
+    </form>
+
+    <div class="list">
+      <ul class="results country-results">
+        <% @countries.each do |country| %>
+        <li class='hidden'>
+          <%= link_to country.name, country_user_countries_path(country), method: :post %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <!-- put last three user countries -->
+  <div class="previous-user-countries">
+    <% if @user_countries.all.order("updated_at").count >= 3 %>
+    <h4>Your previously selected countries:</h4>
+    <div class="previous-countries">
+      <% @user_countries.all.order("updated_at").last(3).each do |country| %>
+      <p><%= link_to country.country.name, country_user_countries_path(country.country), method: :post %></p>
+      <% end %>
+    </div>
     <% end %>
-  </ul>
+  </div>
+
+  <% else %>
+
+  <!-- display info about the app if not logged in -->
+  <div class="about-app">
+    <h2>Allergy App</h2>
+    <p>This APP allows you to choose the country you are in, add allergies to your account, and instantly translate those allergies into the language of the country you are in. You allergies and translations are then saved for later use.</p>
+    <p>Please <%= link_to "log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to continue.</p>
+  </div>
+  <% end %>
 </div>
+

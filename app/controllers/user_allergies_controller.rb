@@ -1,10 +1,4 @@
 class UserAllergiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create]
-
-  def new
-    @UserAllergy = UserAllergy.new
-  end
-
   def create
     if params[:allergy_id]
       @allergy = Allergy.find(params[:allergy_id])
@@ -15,10 +9,19 @@ class UserAllergiesController < ApplicationController
     @user_allergy = UserAllergy.new
     @user_allergy.user = current_user || User.new
     @user_allergy.allergy = @allergy
+    authorize @user_allergy
     if @user_allergy.save
       redirect_to user_path(current_user)
     else
       render 'allergy#index'
     end
+  end
+
+  def destroy
+    @allergy = Allergy.find(params[:id])
+    @user_allergy = UserAllergy.where("allergy_id = ?", @allergy.id)[0]
+    authorize @user_allergy
+    @user_allergy.destroy
+    redirect_to user_path(current_user)
   end
 end

@@ -1,0 +1,75 @@
+.user-container {
+  // align-items: center;
+  // flex-direction: column;
+  // justify-content: space-around;
+}
+.user-info {
+}
+.change-country {
+  .fas {
+    font-size: 20px;
+  }
+}
+.user-allergies-list {
+  font-size: 25px;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  li {
+    background-color: white;
+    margin: 5px;
+    height: 50px;
+    min-width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+}
+.user-allergy {
+  a {
+    color: gray;
+    &:hover {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .fas {
+    font-size: 20px;
+    color: red;
+    &:hover {
+      color: red;
+      opacity: 0.5;
+    }
+  }
+}
+.add-allergy {
+  border-radius: 50%;
+  border: 3px solid green;
+  height: 50px;
+  width: 50px;
+  i {
+    color: green;
+    text-align: center;
+    &:hover {
+      color: green;
+    }
+  }
+  &:hover {
+    color: green;
+    opacity: 0.5;
+  }
+}
+.emergency-contacts-link {
+  padding: 10px;
+  a {
+    color: red;
+    &:hover {
+      text-decoration: none;
+      color: red;
+      font-weight: bold;
+    }
+  }
+}

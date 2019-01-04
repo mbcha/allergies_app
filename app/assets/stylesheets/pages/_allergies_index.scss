@@ -1,0 +1,18 @@
+.allergies-container {
+  padding-top: 150px;
+  justify-content: flex-start;
+}
+.allergy-results {
+  a {
+    color: black;
+    &:hover {
+      text-decoration: none;
+      color: gray;
+    }
+  }
+}
+.allergy-form {
+  width: 400px;
+  text-align: center;
+  margin-bottom: 10px;
+}

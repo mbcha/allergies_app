@@ -1,6 +1,10 @@
-<h3><%= @translation.allergy.name %></h3>
-<h5><%= @translation_warning %></h5>
-<p><%= @translation_message %></p>
-<h4><%= @translation.name %></h4>
+<div class="container translation-container">
 
-<%= link_to "back", user_path(current_user) %>
+  <h4><%= @translation.allergy.name %></h4>
+  <h2><%= @translation_warning %><i class="fas fa-exclamation-triangle"></i></h2>
+  <h3><%= @translation_message %></h3>
+  <h2><%= @translation.name %></h2>
+
+  <%= link_to "back", user_path(current_user) %>
+
+</div>

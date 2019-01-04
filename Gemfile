@@ -3,6 +3,7 @@ ruby '2.4.4'
 
 gem 'bootsnap', require: false
 gem 'devise'
+gem 'pundit'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
@@ -28,4 +29,9 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+  # testing
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'launchy'
 end

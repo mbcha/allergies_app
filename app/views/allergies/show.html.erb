@@ -1,23 +1,25 @@
-<h3 class="english-name notranslate"><%= @allergy.name %></h3>
+<div class="container allergy-container">
 
-<h5 class="warning">Warning!</h5>
-<p class="message">This person suffers from food allergies</p>
-<h4 class="translated-name"><%= @allergy.name %></h4>
+  <h3 class="english-name notranslate"><%= @allergy.name %></h3>
+  <h5 class="warning">Warning!<i class="fas fa-exclamation-triangle"></i></h5>
+  <p class="message">This person suffers from food allergies</p>
+  <h4 class="translated-name"><%= @allergy.name %></h4>
 
-<%= form_tag country_allergy_translations_path(@country, @allergy), class: "update-translation hidden", id: "form", method: :post do %>
+  <%= form_tag country_allergy_translations_path(@country, @allergy), class: "update-translation hidden", id: "form", method: :post do %>
   <%= text_field_tag :name,
-    params[:name],
-    class: "form-control name-input" %>
+  params[:name],
+  class: "form-control name-input" %>
   <%= text_field_tag :message,
-    params[:message],
-    class: "form-control message-input" %>
-<% end %>
+  params[:message],
+  class: "form-control message-input" %>
+  <% end %>
 
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-  }
-</script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+</div>

@@ -4,6 +4,8 @@ const results = document.querySelectorAll(".results li");
 const countriesDiv = document.querySelector(".create-user-country");
 
 let showResults = (event) => {
+  let num = 1
+
   results.forEach((result) => {
     result.classList.add('hidden');
     result.classList.remove('selected');
@@ -11,8 +13,11 @@ let showResults = (event) => {
     let match = result.innerText.match(new RegExp(input.value, "i"))
 
     if (match) {
-      result.classList.remove('hidden');
-      result.classList.add('selected');
+      if (num < 11) {
+        result.classList.remove('hidden');
+        result.classList.add('selected');
+      }
+      num += 1
     }
   })
 };

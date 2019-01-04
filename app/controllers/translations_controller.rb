@@ -1,9 +1,7 @@
 class TranslationsController < ApplicationController
-  # before_action :extract_info, only: %i[show create]
-  skip_before_action :authenticate_user!, only: %i[create show]
-
   def show
     @translation = Translation.find(params[:id])
+    authorize @translation
     @translation_warning = @translation.message.split(":")[0]
     @translation_message = @translation.message.split(":")[1]
   end
@@ -17,13 +15,8 @@ class TranslationsController < ApplicationController
     @translation.language = @language
     @translation.name = params[:name]
     @translation.message = params[:message]
-
+    authorize @translation
     @translation.save
     redirect_to translation_path(@translation)
-  end
-
-  private
-
-  def extract_info
   end
 end
