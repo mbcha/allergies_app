@@ -1,6 +1,6 @@
-class CreateEmergencyContacts < ActiveRecord::Migration[5.2]
+class CreateContacts < ActiveRecord::Migration[5.2]
   def change
-    create_table :emergency_contacts do |t|
+    create_table :contacts do |t|
       t.string :name
       t.string :phone_number
       t.string :relationship
