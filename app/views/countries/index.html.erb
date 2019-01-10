@@ -19,7 +19,6 @@
   </div>
 
   <!-- put last three user countries -->
-  <%# raise %>
   <div class="previous-user-countries">
     <% if @user_countries.all.order("updated_at").count >= 3 %>
     <h4>Your previously selected countries:</h4>
