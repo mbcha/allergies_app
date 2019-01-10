@@ -1,9 +1,9 @@
 <div class="container allergy-container">
 
-  <h3 class="english-name notranslate"><%= @allergy.name %></h3>
-  <h5 class="warning">Warning!<i class="fas fa-exclamation-triangle"></i></h5>
-  <p class="message">This person suffers from food allergies</p>
-  <h4 class="translated-name"><%= @allergy.name %></h4>
+  <h4 class="english-name notranslate"><%= @allergy.name %></h4>
+  <h2 class="warning">Warning!<i class="fas fa-exclamation-triangle"></i></h2>
+  <h3 class="message">This person suffers from food allergies</h3>
+  <h2 class="translated-name"><%= @allergy.name %></h2>
 
   <%= form_tag country_allergy_translations_path(@country, @allergy), class: "update-translation hidden", id: "form", method: :post do %>
   <%= text_field_tag :name,
