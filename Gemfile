@@ -30,8 +30,8 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
   # testing
-  # gem 'capybara'
-  # gem 'selenium-webdriver'
-  # gem 'chromedriver-helper'
-  # gem 'launchy'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'launchy'
 end
