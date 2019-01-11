@@ -35,6 +35,6 @@ class UserCountriesController < ApplicationController
 
   def extract_info
     @country = Country.find(params[:country_id])
-    @existing_user_country = UserCountry.where("country_id = ? AND user_id = ?", @country.id, current_user.id)[0]
+    @existing_user_country = UserCountry.search(@country.id, current_user.id)[0]
   end
 end

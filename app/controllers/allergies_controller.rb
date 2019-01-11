@@ -6,7 +6,7 @@ class AllergiesController < ApplicationController
 
   def show
     @country = Country.find(params[:country_id])
-    @allergy = Allergy.find("#{params[:id]}")
+    @allergy = Allergy.find(params[:id])
     authorize @allergy
   end
 end

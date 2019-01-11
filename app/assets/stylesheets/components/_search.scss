@@ -1,0 +1,11 @@
+.search-input {
+  width: auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media all and (max-width: 750px) {
+  .search-input {
+    width: 80vw;
+  }
+}

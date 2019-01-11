@@ -2,22 +2,23 @@
 
   <div class="create-user-allergy">
     <%= form_tag user_allergies_path, id: "form", autocomplete: :off, method: :post do %>
-    <%= text_field_tag :allergy_name,
-    params[:allergy_name],
-    class: "form-control search-input allergy-form",
-      placeholder: "Add allergy"
-      %>
-      <% end %>
+      <%= text_field_tag :allergy_name,
+      params[:allergy_name],
+      class: "form-control search-input allergy-form",
+      placeholder: "Add allergy" %>
+    <% end %>
 
-      <div class="list">
-        <ul class="results allergy-results">
-          <% @allergies.each do |allergy| %>
-          <li class="hidden">
+    <div class="list">
+      <ul class="results allergy-results">
+        <% @allergies.each do |allergy| %>
+          <li class="hidden btn btn-danger">
             <%= link_to allergy.name, allergy_user_allergies_path(allergy), method: :post %>
           </li>
-          <% end %>
-        </ul>
-      </div>
+        <% end %>
+      </ul>
     </div>
-
   </div>
+
+  <%= link_to "Back", :back, class: "btn btn-info back-btn" %>
+
+</div>

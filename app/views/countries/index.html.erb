@@ -9,8 +9,8 @@
 
     <div class="list">
       <ul class="results country-results">
-        <% @countries.each do |country| %>
-        <li class='hidden'>
+        <% @countries.order("name").each do |country| %>
+        <li class='hidden btn btn-danger'>
           <%= link_to country.name, country_user_countries_path(country), method: :post %>
         </li>
         <% end %>
@@ -20,11 +20,11 @@
 
   <!-- put last three user countries -->
   <div class="previous-user-countries">
-    <% if @user_countries.all.order("updated_at").count >= 3 %>
+    <% if @user_countries.all.order("updated_at").count >= 1 %>
     <h4>Your previously selected countries:</h4>
     <div class="previous-countries">
       <% @user_countries.all.order("updated_at").last(3).each do |country| %>
-      <p><%= link_to country.country.name, country_user_countries_path(country.country), method: :post %></p>
+      <p><%= link_to country.country.name, country_user_countries_path(country.country), method: :post, class: "btn btn-info" %></p>
       <% end %>
     </div>
     <% end %>

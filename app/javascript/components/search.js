@@ -10,7 +10,7 @@ let showResults = (event) => {
     result.classList.add('hidden');
     result.classList.remove('selected');
 
-    let match = result.innerText.match(new RegExp(input.value, "i"))
+    let match = result.innerText.match(new RegExp('^[\n\ ]+' + input.value, "i"))
 
     if (match) {
       if (num < 11) {

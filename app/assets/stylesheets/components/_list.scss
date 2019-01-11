@@ -1,10 +1,47 @@
 .list {
   ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     padding-inline-start: 0px;
     list-style-type: none;
+    width: 400px;
   }
   li {
     border: 1 solid gray;
     padding: 5px;
+    margin: 3px 5px;
+
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+    display: flex;
+
+    a {
+      color: white;
+      max-width: 90vw;
+      text-align: center;
+      &:hover {
+        text-decoration: none;
+        color: white;
+      }
+    }
+
+      // word-break: break-all !important; /* make sure containers don't override */
   }
+}
+@media all and (max-width: 750px) {
+ .list {
+  ul {
+    justify-content: space-evenly;
+    width: 90vw;
+  }
+  li {
+    margin: 3px 1px;
+  }
+ }
 }

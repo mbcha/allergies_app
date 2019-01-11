@@ -5,28 +5,22 @@
 }
 .create-user-country {
   flex-grow: 1;
-}
-.country-results {
-  a {
-    color: black;
-    &:hover {
-      text-decoration: none;
-      color: gray;
-    }
-  }
-}
-.country-form {
-  width: 400px;
-  text-align: center;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .previous-user-countries {
   width: auto;
+  h4 {
+    color: $text-gray;
+  }
 }
 .previous-countries {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
   p {
     padding: 0 10px;
     a {
