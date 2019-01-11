@@ -28,8 +28,22 @@
     &:hover {
       text-decoration: none;
       color: red;
-      opacity: 0.5;
+      // opacity: 0.;
+
     }
   }
   }
+}
+.previous-country {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #C4C8CE;
+  border: 0;
+  &:hover {
+    background-color: #B0B4B9;
+  }
+}
+.explanation {
+
 }

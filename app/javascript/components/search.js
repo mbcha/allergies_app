@@ -2,23 +2,31 @@ const input = document.querySelector(".search-input");
 const form = document.getElementById("form");
 const results = document.querySelectorAll(".results li");
 const countriesDiv = document.querySelector(".create-user-country");
+const explanation = document.querySelector(".explanation");
 
 let showResults = (event) => {
+  if (explanation) {
+    explanation.classList.add('hidden');
+  }
+
   let num = 1
 
   results.forEach((result) => {
     result.classList.add('hidden');
     result.classList.remove('selected');
 
-    let match = result.innerText.match(new RegExp('^[\n\ ]+' + input.value, "i"))
+    if (input.value.length > 0) {
+      let match = result.innerText.match(new RegExp('^[\n\ ]+' + input.value, "i"))
 
-    if (match) {
-      if (num < 11) {
-        result.classList.remove('hidden');
-        result.classList.add('selected');
+      if (match) {
+        if (num < 11) {
+          result.classList.remove('hidden');
+          result.classList.add('selected');
+        }
+        num += 1
       }
-      num += 1
     }
+
   })
 };
 

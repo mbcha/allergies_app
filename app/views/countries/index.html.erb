@@ -16,6 +16,12 @@
         <% end %>
       </ul>
     </div>
+
+    <% if @user_countries.all.empty? %>
+      <div class="explanation">
+        Select the country you are in or you are traveling to. This should be the country of the language that you want your allergies to be translated to.
+      </div>
+    <% end %>
   </div>
 
   <!-- put last three user countries -->
@@ -24,7 +30,7 @@
     <h4>Your previously selected countries:</h4>
     <div class="previous-countries">
       <% @user_countries.all.order("updated_at").last(3).each do |country| %>
-      <p><%= link_to country.country.name, country_user_countries_path(country.country), method: :post, class: "btn btn-info" %></p>
+      <p class="btn btn-info previous-country"><%= link_to country.country.name, country_user_countries_path(country.country), method: :post %></p>
       <% end %>
     </div>
     <% end %>
@@ -34,8 +40,8 @@
 
   <!-- display info about the app if not logged in -->
   <div class="about-app">
-    <h2>Allergy App</h2>
-    <p>This APP allows you to choose the country you are in, add allergies to your account, and instantly translate those allergies into the language of the country you are in. You allergies and translations are then saved for later use.</p>
+    <h2>Allergies Translate App</h2>
+    <p>This APP allows you to choose the country you are in, add allergies to your account, and instantly translate those allergies into the language of the country you are in. Your allergies and translations are then saved for later use.</p>
     <p>Please <%= link_to "log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to continue.</p>
   </div>
   <% end %>
