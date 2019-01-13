@@ -1,4 +1,17 @@
 class TranslationsController < ApplicationController
+  def index
+    user_allergies = UserAllergy.where("user_id = ? ", current_user.id)
+    language = Language.find(params[:language_id])
+    @translations = user_allergies.map do |user_allergy|
+      allergy = Allergy.find(user_allergy.allergy.id)
+      Translation.find_by_allergy_and_language(allergy.id, language.id)[0]
+    end
+    line = @translations[0].message
+    @translation_warning = line.split(":")[0]
+    @translation_message = line.split(":")[1]
+    authorize @translations[0]
+  end
+
   def show
     @translation = Translation.find(params[:id])
     authorize @translation

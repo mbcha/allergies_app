@@ -32,11 +32,13 @@
     <% end %>
 
     <ul>
+      <% i = 0 %>
       <% @user_allergies.each do |user_allergy| %>
       <% allergy = Allergy.find(user_allergy.allergy.id) %>
-      <% @translation = Translation.search(allergy.id, @language.id).first %>
+      <% @translation = Translation.find_by_allergy_and_language(allergy.id, @language.id).first %>
       <li class="user-allergy">
         <% if @translation %>
+        <% i += 1 %>
         <%= link_to allergy.name, translation_path(@translation), class: "link-to-translation"%>
         <% else %>
         <%= link_to allergy.name, country_allergy_path(@country, allergy) + "/#googtrans(original|#{@language.code})", class: "link-to-translation" %>
@@ -45,6 +47,10 @@
         <i class="fas fa-times"></i>
         <% end %>
       </li>
+      <% end %>
+
+      <% if i == @user_allergies.length %>
+        <%= link_to "Translate All", language_translations_path(@language) %>
       <% end %>
     </ul>
   </div>

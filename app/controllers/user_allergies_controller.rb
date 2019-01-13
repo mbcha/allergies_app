@@ -19,7 +19,7 @@ class UserAllergiesController < ApplicationController
 
   def destroy
     @allergy = Allergy.find(params[:id])
-    @user_allergy = UserAllergy.search(@allergy.id, current_user.id)
+    @user_allergy = UserAllergy.search(@allergy.id, current_user.id).first
     authorize @user_allergy
     @user_allergy.destroy
     redirect_to user_path(current_user)

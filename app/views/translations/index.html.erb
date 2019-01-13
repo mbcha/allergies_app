@@ -1,10 +1,11 @@
-<div class="wrapper translation-container">
-
-  <h4><%= @translation.allergy.name %></h4>
+<div class="wrapper translations-container">
   <h2><%= @translation_warning %><i class="fas fa-exclamation-triangle"></i></h2>
   <h3><%= @translation_message %></h3>
-  <h2><%= @translation.name %></h2>
+  <div class="translation-names">
+    <% @translations.each do |translation| %>
+    <h3><%= translation.name %></h3>
+    <% end %>
+  </div>
 
   <%= link_to "Back", user_path(current_user), class: "btn btn-info previous-country" %>
-
 </div>
