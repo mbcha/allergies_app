@@ -1,4 +1,4 @@
-<div class="container user-container">
+<div class="wrapper user-container">
 
   <div class="user-info">
     <h1>My Allergies</h1>
@@ -21,14 +21,15 @@
   <!-- show user allergies in a list -->
 
   <div class="user-allergies-list">
+
+    <%= link_to(allergies_path) do %>
     <% if @user_allergies.empty? %>
-    <h4>ADD ALLERGY</h4>
+    <h4 class="add-text fadein">ADD ALLERGY</h4>
     <% end %>
     <div class="add-allergy">
-      <%= link_to(allergies_path) do %>
       <i class="fas fa-plus btn"></i>
-      <% end %>
     </div>
+    <% end %>
 
     <ul>
       <% @user_allergies.each do |user_allergy| %>

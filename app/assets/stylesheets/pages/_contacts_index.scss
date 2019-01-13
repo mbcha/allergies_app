@@ -1,0 +1,43 @@
+.contacts-container {
+  justify-content: space-around;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  // width: 80vw;
+}
+.contact-info {
+  position: relative;
+  padding: 0 20px;
+  margin: 5px 10px;
+  background: white;
+  max-width: 80vw;
+  word-wrap: break-word;
+
+  .fa-pencil-alt {
+    margin-left: 5px;
+    position: absolute;
+    top: 5px;
+    right: 30px;
+  }
+}
+.contact {
+  margin-right: 20px;
+  padding-right: 10px;
+  max-width: 70vw;
+}
+.cross {
+  color: red;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.new-contact-form {
+  input {
+    text-align: center;
+    margin: 5px 0;
+  }
+}

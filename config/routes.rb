@@ -6,12 +6,11 @@ Rails.application.routes.draw do
     resources :user_countries, only: :create
     resources :allergies, only: [:index, :show] do
       resources :translations, only: [:show, :create, :update]
-      resources :user_translations, only: :create
     end
   end
 
   resources :users, only: :show do
-    resources :contacts, only: :index
+    resources :contacts, only: [:index, :create, :update, :destroy]
   end
   resources :translations, only: :show
   resources :allergies, only: [:index, :show] do
