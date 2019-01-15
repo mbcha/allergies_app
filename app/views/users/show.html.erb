@@ -4,18 +4,40 @@
     <h1>My Allergies</h1>
 
     <!-- let user change language if country has more than one -->
-    <% @country = @user_countries.all.order("updated_at").last.country %>
-    <% code = @country.language_code.split(", ") %>
+
+    <% if @user.country_id.nil? && @user.language_id.nil? %>
+    <h4>Chose a country or a language to be able to translate your <%= @user_allergies.nil? || @user_allergies.length == 1 ? "allergy" : "allergies" %></h4>
+
+    <%= link_to "Language", languages_path %>
+    <%= link_to "Country", countries_path %>
+
+    <% elsif @user.country_id.nil? %>
+
+    <% @language = @user.language %>
+
+    <h3>
+      <%= @language.name %>
+      <%= link_to languages_path, class: "change-country" do %>
+      <i class="fas fa-exchange-alt"></i>
+      <% end %>
+    </h3>
+    <%= link_to "Choose a country", countries_path %>
+
+    <% else %>
+
+    <% @country = @user.country %>
+
     <h3>
       <%= @country.name %>
       <%= link_to countries_path, class: "change-country" do %>
       <i class="fas fa-exchange-alt"></i>
       <% end %>
     </h3>
-
     <% @language = Language.find_by_code(@country.language_code) %>
     <h4>Language: <%= @language.name %></h4>
 
+    <%= link_to "Choose a language", languages_path %>
+    <% end %>
   </div>
 
   <!-- show user allergies in a list -->
@@ -35,29 +57,40 @@
       <% i = 0 %>
       <% @user_allergies.each do |user_allergy| %>
       <% allergy = Allergy.find(user_allergy.allergy.id) %>
-      <% @translation = Translation.find_by_allergy_and_language(allergy.id, @language.id).first %>
+
+      <% if @user.country_id.nil? && @user.language_id.nil? %>
+      <li class="user-allergy">
+        <h5 class=link-to-translation"><%= allergy.name %></h5>
+        <%= link_to user_allergy_path(allergy), method: :delete, class: "cross" do %>
+        <i class="fas fa-times"></i>
+        <% end %>
+      </li>
+
+      <% else %>
+
+      <% @translation = Translation.find_by_allergy_and_language(allergy.id, @language.id, @user.message).first %>
       <li class="user-allergy">
         <% if @translation %>
         <% i += 1 %>
         <%= link_to allergy.name, translation_path(@translation), class: "link-to-translation"%>
         <% else %>
-        <%= link_to allergy.name, country_allergy_path(@country, allergy) + "/#googtrans(original|#{@language.code})", class: "link-to-translation" %>
+        <%= link_to allergy.name, language_allergy_path(@language, allergy) + "/#googtrans(original|#{@language.code})", class: "link-to-translation" %>
         <% end %>
         <%= link_to user_allergy_path(allergy), method: :delete, class: "cross" do %>
         <i class="fas fa-times"></i>
         <% end %>
       </li>
-      <% end %>
 
       <% if i == @user_allergies.length %>
-        <%= link_to "Translate All", language_translations_path(@language) %>
+      <%= link_to "Translate All", language_translations_path(@language) %>
       <% end %>
+      <% end %>
+      <% end %>
+
     </ul>
   </div>
-
 
   <div class="emergency-contacts-link">
     <%= link_to "Emergency Contacts", user_contacts_path(@user) %>
   </div>
-
 </div>

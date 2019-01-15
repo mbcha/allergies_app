@@ -7,13 +7,12 @@ const newContactForm = document.querySelector('.new-contact-form');
 const cancel = document.querySelector('.add-cancel');
 
 function openForm() {
-  if (contactNames) {
+  if (contactNames && contactNames.length > 0) {
     contactNames.forEach((name) => {
       let compact = name.innerText.replace(" ", "")
 
       let edit = document.querySelector(`.edit-${compact}`);
 
-      // let contactName = document.querySelector(`.contact-name-${compact}`)
       let contactRelationship = document.querySelector(`.contact-relationship-${compact}`);
       let contactEmail = document.querySelector(`.contact-email-${compact}`);
       let contactNumber = document.querySelector(`.contact-number-${compact}`);
@@ -34,20 +33,7 @@ function openForm() {
         editNumber.classList.toggle('hidden');
         submit.classList.toggle('hidden');
       })
-      // editRelationship.addEventListener('click', (event) => {
-      //   contactRelationship.classList.toggle('hidden');
-      //   submitRelationship.classList.toggle('hidden');
-      // })
-      // editEmail.addEventListener('click', (event) => {
-      //   contactEmail.classList.toggle('hidden');
-      //   submitEmail.classList.toggle('hidden');
-      // })
-      // editNumber.addEventListener('click', (event) => {
-      //   contactNumber.classList.toggle('hidden');
-      //   submitNumber.classList.toggle('hidden');
-      // })
     })
-
 
     newContactButton.addEventListener('click', (event) => {
       newContactForm.classList.remove('hidden');

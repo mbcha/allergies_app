@@ -5,6 +5,11 @@
   <h3><%= @translation_message %></h3>
   <h2><%= @translation.name %></h2>
 
+  <% unless @translation.allergy.photo.nil? %>
+  <%= cl_image_tag @translation.allergy.photo, height: 300, width: 300, crop: :fit %>
+  <% end %>
+
+
   <%= link_to "Back", user_path(current_user), class: "btn btn-info previous-country" %>
 
 </div>

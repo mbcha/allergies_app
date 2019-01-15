@@ -5,7 +5,8 @@ class AllergiesController < ApplicationController
   end
 
   def show
-    @country = Country.find(params[:country_id])
+    @language = Language.find(params[:language_id])
+    @user = current_user
     @allergy = Allergy.find(params[:id])
     authorize @allergy
   end

@@ -4,4 +4,6 @@ class Country < ApplicationRecord
   validates :language_code, presence: true
 
   has_many :user_countries
+  has_many :users
+
 end

@@ -18,16 +18,6 @@ user = User.create(
   password: "testing"
   )
 
-puts "Adding Contact..."
-
-Contact.create(
-  user: user,
-  name: "Dom",
-  phone_number: "010203040506",
-  relationship: "boyfriend",
-  email: "dom@gmail.com"
-  )
-
 puts "Adding Allergies..."
 
 allergiesUrl = "http://research.bmh.manchester.ac.uk/informAll/allergenic-foods"
@@ -39,6 +29,21 @@ html_doc_allergies.search('#content li a').each do |allergy|
   allergy_name = allergy.text.strip
   allergy_name.slice!(/ \(.+\)/)
   Allergy.create(name: allergy_name) if Allergy.find_by_name(allergy_name).nil?
+end
+
+Allergy.all.each do |allergy|
+  name = allergy.name.split(' ')
+
+  html_photos = open("https://unsplash.com/search/photos/#{name[0]}").read
+  doc_photos = Nokogiri::HTML(html_photos)
+  photo = doc_photos.search('._1pn7R').first
+
+  unless photo.nil?
+    url = photo.search('.yVU8k a img').first['src']
+
+    allergy.update(remote_photo_url: url)
+    allergy.save
+  end
 end
 
 puts "Adding Languages..."

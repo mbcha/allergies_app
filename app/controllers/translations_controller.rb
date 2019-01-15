@@ -21,13 +21,15 @@ class TranslationsController < ApplicationController
 
   def create
     @allergy = Allergy.find(params[:allergy_id])
-    @country = Country.find(params[:country_id])
-    @language = Language.find_by_code(@country.language_code)
+    # @country = Country.find(params[:country_id])
+    @language = Language.find(params[:language_id])
+    # @language = Language.find_by_code(@country.language_code)
     @translation = Translation.new
     @translation.allergy = @allergy
     @translation.language = @language
     @translation.name = params[:name]
     @translation.message = params[:message]
+    @translation.original_message = params[:original_message]
     authorize @translation
     @translation.save
     redirect_to translation_path(@translation)

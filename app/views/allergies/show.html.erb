@@ -2,15 +2,20 @@
 
   <h4 class="english-name notranslate"><%= @allergy.name %></h4>
   <h2 class="warning">Warning!<i class="fas fa-exclamation-triangle"></i></h2>
-  <h3 class="message">This person suffers from food allergies</h3>
+  <h3 class="message"><%= @user.message %></h3>
   <h2 class="translated-name"><%= @allergy.name %></h2>
 
-  <%= form_tag country_allergy_translations_path(@country, @allergy), class: "update-translation hidden", id: "form", method: :post do %>
+  <%= link_to "Back", user_path(current_user), class: "btn btn-info previous-country" %>
+
+  <%= form_tag language_allergy_translations_path(@language, @allergy), class: "update-translation hidden", id: "form", method: :post do %>
   <%= text_field_tag :name,
   params[:name],
   class: "form-control name-input" %>
   <%= text_field_tag :message,
   params[:message],
+  class: "form-control message-input" %>
+  <%= text_field_tag :original_message,
+  params[:original_message], value: @user.message,
   class: "form-control message-input" %>
   <% end %>
 

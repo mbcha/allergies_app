@@ -1,19 +1,19 @@
 <div class="wrapper countries-container">
-  <h1>Choose a Country</h1>
+  <h1>Choose a Language</h1>
 
   <div class="create-user-country">
     <%= form_tag user_path(current_user), class: "form", autocomplete: :off, method: :patch do %>
-      <%= text_field_tag :country_name,
-      params[:country_name],
+      <%= text_field_tag :language_name,
+      params[:language_name],
       class: "form-control search-input",
-      placeholder: "Add Country" %>
+      placeholder: "Add Language" %>
     <% end %>
 
     <div class="list">
       <ul class="results">
-        <% Country.all.order("name").each do |country| %>
+        <% Language.all.order("name").each do |language| %>
         <li class='hidden'>
-          <p class="btn btn-danger"><%= country.name %></p>
+          <p class="btn btn-danger"><%= language.name %></p>
         </li>
         <% end %>
       </ul>

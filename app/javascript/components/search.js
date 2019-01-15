@@ -1,19 +1,30 @@
 const input = document.querySelector(".search-input");
-const form = document.getElementById("form");
+const form = document.querySelector(".form");
 const results = document.querySelectorAll(".results li");
-const countriesDiv = document.querySelector(".create-user-country");
-const explanation = document.querySelector(".explanation");
+const allergiesDiv = document.querySelector(".create-user-allergy");
+const submitAllergy = document.querySelector(".submit-allergy-button");
 
-let showResults = (event) => {
-  if (explanation) {
-    explanation.classList.add('hidden');
+function search() {
+  if (allergiesDiv) {
+    input.addEventListener("keyup", showResults);
+    form.addEventListener("submit", pickFirstResult);
   }
+  else if (input) {
+    input.addEventListener("keyup", showResults);
+    form.addEventListener("submit", pickFirstResult);
+    results.forEach(submitIfClicked);
+  }
+};
 
-  let num = 1
+const showResults = (event) => {
+  let num = 1;
 
   results.forEach((result) => {
     result.classList.add('hidden');
     result.classList.remove('selected');
+    if (allergiesDiv) {
+      submitAllergy.classList.add('hidden');
+    }
 
     if (input.value.length > 0) {
       let match = result.innerText.match(new RegExp('^[\n\ ]+' + input.value, "i"))
@@ -26,30 +37,38 @@ let showResults = (event) => {
         num += 1
       }
     }
+    let first_result = document.querySelector(".selected");
 
-  })
-};
-
-let pickFirstResult = (event) => {
-  event.preventDefault();
-  const first_result = document.querySelector(".selected a");
-  if (first_result && countriesDiv) {
-    first_result.click();
-  } else if (!countriesDiv) {
-    if (first_result) {
-      input.value = first_result.innerText
-      form.submit();
-    } else {
-      form.submit();
+    if (first_result == null && allergiesDiv) {
+      submitAllergy.classList.remove('hidden');
     }
+  });
+};
+
+const pickFirstResult = (event) => {
+  event.preventDefault();
+  let first_result = document.querySelector(".selected");
+  if (first_result && allergiesDiv == null)
+  {
+    first_result.click();
+  }
+  else if (first_result)
+  {
+    input.value = first_result.innerText
+    form.submit();
+  }
+  else
+  {
+    form.submit();
   }
 };
 
-function search() {
-  if (input) {
-    input.addEventListener("keyup", showResults);
-    form.addEventListener("submit", pickFirstResult);
-  }
+const submitIfClicked = result => {
+  result.addEventListener('click', (event) => {
+    event.preventDefault();
+    input.value = event.currentTarget.innerText;
+    form.submit();
+  })
 };
 
 export { search };

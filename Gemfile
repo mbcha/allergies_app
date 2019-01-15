@@ -35,3 +35,6 @@ group :development, :test do
   gem 'chromedriver-helper'
   gem 'launchy'
 end
+
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'

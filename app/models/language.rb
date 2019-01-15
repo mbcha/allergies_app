@@ -4,5 +4,7 @@ class Language < ApplicationRecord
   validates :code, presence: true
   validates :code, uniqueness: true
 
+  has_many :users
+
   scope :find_by_code, ->(input) { where("code ILIKE ?", "%#{input}%").first }
 end

@@ -11,20 +11,20 @@
   <div class="dropdown">
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
-      <% unless current_user.user_countries.empty? %>
+      <%# unless current_user.user_countries.empty? %>
       <li>
         <%= link_to user_path(current_user) do %>
           <i class="fas fa-allergies"></i> My Allergies
         <% end %>
       </li>
-      <% end %>
+      <%# end %>
       <li>
         <%= link_to user_contacts_path(current_user) do %>
           <i class="fas fa-address-book"></i> Emergency Contacts
         <% end %>
       </li>
       <li>
-        <%= link_to user_contacts_path(current_user) do %>
+        <%= link_to edit_user_path(current_user) do %>
           <i class="fa fa-cog"></i> Settings
         <% end %>
       </li>

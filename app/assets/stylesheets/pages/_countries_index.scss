@@ -14,6 +14,9 @@
   width: auto;
   h4 {
     color: $text-gray;
+    border-bottom: 2px solid $red;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
   }
 }
 .previous-countries {
@@ -23,11 +26,12 @@
   flex-wrap: wrap;
   p {
     padding: 0 10px;
+    margin: 0 5px;
     a {
-    color: red;
+    color: $text-gray;
     &:hover {
       text-decoration: none;
-      color: red;
+      color: white;
       // opacity: 0.;
 
     }

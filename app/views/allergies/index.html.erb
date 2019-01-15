@@ -1,19 +1,21 @@
 <div class="wrapper allergies-container">
+  <h1>Add an allergy</h1>
 
   <div class="create-user-allergy">
-    <%= form_tag user_allergies_path, id: "form", autocomplete: :off, method: :post do %>
-      <%= text_field_tag :allergy_name,
-      params[:allergy_name],
-      class: "form-control search-input allergy-form",
+    <%= form_tag user_allergies_path, class: "form allergy-form", autocomplete: :off, method: :post do %>
+    <%= text_field_tag :allergy_name,
+    params[:allergy_name],
+    class: "form-control search-input",
       placeholder: "Add allergy" %>
-    <% end %>
+      <%= submit_tag 'Add', class: "form-control submit-allergy-button hidden" %>
+      <% end %>
 
     <div class="list">
-      <ul class="results allergy-results">
+      <ul class="results">
         <% @allergies.each do |allergy| %>
-          <li class="hidden btn btn-danger">
-            <%= link_to allergy.name, allergy_user_allergies_path(allergy), method: :post %>
-          </li>
+        <li class="hidden btn btn-danger">
+          <%= link_to allergy.name, allergy_user_allergies_path(allergy), method: :post %>
+        </li>
         <% end %>
       </ul>
     </div>

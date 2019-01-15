@@ -10,11 +10,11 @@ function translate() {
 
   if (message) {
     name.addEventListener("DOMSubtreeModified", (event) => {
-      if (message.innerText != "This person suffers from food allergies") {
+      // if (message.innerText != "This person suffers from food allergies") {
         nameInput.value = name.innerText;
         messageInput.value = warning.innerText + ":" + message.innerText;
         form.submit();
-      }
+      // }
     })
   }
 }

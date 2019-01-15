@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_09_154018) do
+ActiveRecord::Schema.define(version: 2019_01_15_160549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_154018) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_01_09_154018) do
     t.bigint "language_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "original_message"
     t.index ["allergy_id"], name: "index_translations_on_allergy_id"
     t.index ["language_id"], name: "index_translations_on_language_id"
   end
@@ -76,6 +78,15 @@ ActiveRecord::Schema.define(version: 2019_01_09_154018) do
     t.index ["user_id"], name: "index_user_countries_on_user_id"
   end
 
+  create_table "user_languages", force: :cascade do |t|
+    t.bigint "language_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_user_languages_on_language_id"
+    t.index ["user_id"], name: "index_user_languages_on_user_id"
+  end
+
   create_table "user_translations", force: :cascade do |t|
     t.bigint "translation_id"
     t.bigint "user_id"
@@ -94,8 +105,15 @@ ActiveRecord::Schema.define(version: 2019_01_09_154018) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.text "message", default: "This person suffers from food allergies"
+    t.bigint "language_id"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["language_id"], name: "index_users_on_language_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "users", "countries"
+  add_foreign_key "users", "languages"
 end
