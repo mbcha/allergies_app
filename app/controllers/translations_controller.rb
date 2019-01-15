@@ -4,7 +4,7 @@ class TranslationsController < ApplicationController
     language = Language.find(params[:language_id])
     @translations = user_allergies.map do |user_allergy|
       allergy = Allergy.find(user_allergy.allergy.id)
-      Translation.find_by_allergy_and_language(allergy.id, language.id)[0]
+      Translation.find_by_allergy_and_language(allergy.id, language.id, current_user.message)[0]
     end
     line = @translations[0].message
     @translation_warning = line.split(":")[0]
