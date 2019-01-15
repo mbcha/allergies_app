@@ -14,23 +14,31 @@
       <%# unless current_user.user_countries.empty? %>
       <li>
         <%= link_to user_path(current_user) do %>
-          <i class="fas fa-allergies"></i> My Allergies
+          <i class="fas fa-allergies"></i>
+          <h6>My Allergies</h6>
         <% end %>
       </li>
       <%# end %>
       <li>
         <%= link_to user_contacts_path(current_user) do %>
-          <i class="fas fa-address-book"></i> Emergency Contacts
+          <i class="fas fa-address-book"></i>
+          <h6>Emergency Contacts</h6>
         <% end %>
       </li>
       <li>
         <%= link_to edit_user_path(current_user) do %>
-          <i class="fa fa-cog"></i> Settings
+          <i class="fa fa-cog"></i>
+          <h6>
+          Settings
+          </h6>
         <% end %>
       </li>
       <li>
         <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fas fa-sign-out-alt"></i> Sign Out
+          <i class="fas fa-sign-out-alt"></i>
+          <h6>
+          Sign Out
+          </h6>
         <% end %>
       </li>
     </ul>

@@ -55,12 +55,17 @@
   border-color: #E6E6E6;
 }
 .navbar-dropdown-menu li > a {
+  display: flex;
+  align-items: center;
   transition: color 0.3s ease;
   font-weight: lighter !important;
   color: #999999 !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
+  h6 {
+    margin-left: 5px;
+  }
 }
 .navbar-dropdown-menu li > a:hover {
   background: transparent !important;
