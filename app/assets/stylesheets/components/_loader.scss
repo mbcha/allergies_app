@@ -1,0 +1,16 @@
+.loader {
+  border: 16px solid white;
+  border-top: 16px solid $app-green;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: center;
+  right: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

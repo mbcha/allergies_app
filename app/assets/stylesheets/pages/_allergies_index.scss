@@ -17,6 +17,9 @@
   display: flex;
 }
 
-.allergy-containter {
-  opacity: 1;
+.allergy-container {
+  opacity: 0;
+}
+.loading-animation {
+  position: relative;
 }

@@ -6,6 +6,8 @@ const warningInput = document.querySelector('.warning-input')
 const messageInput = document.querySelector('.message-input')
 const form = document.querySelector('.update-translation')
 
+console.log(message)
+
 function translate() {
 
   if (message) {
