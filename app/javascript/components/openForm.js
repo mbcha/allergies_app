@@ -1,6 +1,7 @@
 const contacts = document.querySelector(".contacts");
 
 const contactNames = document.querySelectorAll(".contact-name");
+const emergencyDiv = document.querySelector('.contacts-container');
 
 const newContactButton = document.querySelector('.new-contact-button');
 const newContactForm = document.querySelector('.new-contact-form');
@@ -34,7 +35,8 @@ function openForm() {
         submit.classList.toggle('hidden');
       })
     })
-
+  }
+  if (emergencyDiv) {
     newContactButton.addEventListener('click', (event) => {
       newContactForm.classList.remove('hidden');
       newContactButton.classList.add('hidden');

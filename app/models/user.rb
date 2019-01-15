@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true
   validates :username, uniqueness: true
+  validates :message, presence: true
   # validates_numericality_of :country_id, allow_nil: true
 
   has_many :user_countries, dependent: :destroy
