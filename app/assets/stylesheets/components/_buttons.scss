@@ -1,0 +1,30 @@
+.button {
+  padding: 10px 20px;
+  margin: 0px;
+  font-weight: 600;
+  border-radius: 25px;
+  border: 3px solid $text-gray;
+  cursor: pointer;
+  text-align: center;
+  &:active, &:focus, &:hover {
+    border-color: $app-green;
+    outline: none;
+    color: $app-green;
+    a {
+      text-decoration: none;
+      color: $app-green;
+    }
+  }
+  a {
+    color: $text-gray;
+    max-width: 90vw;
+    text-align: center;
+  }
+}
+.current {
+  border-color: $app-green;
+  color: $app-green;
+  a {
+    color: $app-green;
+  }
+}

@@ -5,15 +5,14 @@
     <%= form_tag user_path(current_user), class: "form", autocomplete: :off, method: :patch do %>
       <%= text_field_tag :language_name,
       params[:language_name],
-      class: "form-control search-input",
-      placeholder: "Add Language" %>
+      class: "form-control search-input typed-text" %>
     <% end %>
 
     <div class="list">
       <ul class="results">
         <% Language.all.order("name").each do |language| %>
         <li class='hidden'>
-          <p class="btn btn-danger"><%= language.name %></p>
+          <p class="button <%= "current" if language.id == current_user.language_id %>"><%= language.name %></p>
         </li>
         <% end %>
       </ul>

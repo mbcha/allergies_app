@@ -1,12 +1,6 @@
 .user-container {
   justify-content: space-between;
-  padding-top: 50px;
   padding-bottom: 50px;
-}
-.user-info {
-  h1 {
-    color: $text-gray;
-  }
 }
 .change-country {
   .fas {
@@ -41,14 +35,10 @@
   padding-bottom: 10px;
   color: green;
   cursor: pointer;
-  // margin-top: 25px;
-  // font-size: 21px;
-  // text-align: center;
 }
 .user-allergy {
   background-color: white;
   margin: 5px;
-  // height: 50px;
   width: 350px;
   display: flex;
   flex-wrap: wrap;
@@ -57,7 +47,6 @@
   padding: 3px 10px;
   position: relative;
   .link-to-translation {
-    // flex-grow: 1;
     text-align: left;
     padding-left: 4px;
     padding-right: 8px;
@@ -87,20 +76,16 @@
 .add-allergy {
   margin-bottom: 10px;
   border-radius: 50%;
-  border: 3px solid green;
+  border: 3px solid $app-green;
   height: 50px;
   width: 50px;
   i {
-    color: green;
+    color: $app-green;
     text-align: center;
     &:hover {
-      color: green;
+      color: $app-green;
     }
   }
-  // &:hover {
-  //   color: green;
-  //   opacity: 0.5;
-  // }
 }
 .emergency-contacts-link {
   padding: 10px;

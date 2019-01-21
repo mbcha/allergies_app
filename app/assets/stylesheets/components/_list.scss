@@ -22,16 +22,12 @@
     display: flex;
 
     a {
-      color: white;
       max-width: 90vw;
       text-align: center;
       &:hover {
         text-decoration: none;
-        color: white;
       }
     }
-
-      // word-break: break-all !important; /* make sure containers don't override */
   }
 }
 @media all and (max-width: 750px) {

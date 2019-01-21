@@ -5,11 +5,20 @@ body {
   height: auto;
   display: flex;
   flex-direction: column;
+  color: $text-gray;
 }
 .skiptranslate {
   opacity: 0;
 }
 .selected {
   font-weight: bold;
+}
+
+@media all and (max-width: 750px) {
+  h1 {
+    font-size: 40px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 }
 

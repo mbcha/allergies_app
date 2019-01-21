@@ -6,7 +6,7 @@
     <!-- let user change language if country has more than one -->
 
     <% if @user.country_id.nil? && @user.language_id.nil? %>
-    <h4>Chose a country or a language to be able to translate your <%= @user_allergies.nil? || @user_allergies.length == 1 ? "allergy" : "allergies" %></h4>
+    <h3>Chose a country or a language to be able to translate your <%= @user_allergies.nil? || @user_allergies.length == 1 ? "allergy" : "allergies" %></h3>
 
     <%= link_to "Language", languages_path %>
     <%= link_to "Country", countries_path %>
@@ -15,26 +15,26 @@
 
     <% @language = @user.language %>
 
-    <h3>
+    <h2>
       <%= @language.name %>
       <%= link_to languages_path, class: "change-country" do %>
       <i class="fas fa-exchange-alt"></i>
       <% end %>
-    </h3>
+    </h2>
     <%= link_to "Choose a country", countries_path %>
 
     <% else %>
 
     <% @country = @user.country %>
 
-    <h3>
+    <h2>
       <%= @country.name %>
       <%= link_to countries_path, class: "change-country" do %>
       <i class="fas fa-exchange-alt"></i>
       <% end %>
-    </h3>
+    </h2>
     <% @language = Language.find_by_code(@country.language_code) %>
-    <h4>Language: <%= @language.name %></h4>
+    <h3>Language: <%= @language.name %></h3>
 
     <%= link_to "Choose a language", languages_path %>
     <% end %>
@@ -46,7 +46,7 @@
 
     <%= link_to(allergies_path) do %>
     <% if @user_allergies.empty? %>
-    <h4 class="add-text fadein">ADD ALLERGY</h4>
+    <h2 class="add-text fadein">ADD ALLERGY</h2>
     <% end %>
     <div class="add-allergy">
       <i class="fas fa-plus btn"></i>
@@ -60,7 +60,7 @@
 
       <% if @user.country_id.nil? && @user.language_id.nil? %>
       <li class="user-allergy">
-        <h5 class=link-to-translation"><%= allergy.name %></h5>
+        <h3 class=link-to-translation"><%= allergy.name %></h3>
         <%= link_to user_allergy_path(allergy), method: :delete, class: "cross" do %>
         <i class="fas fa-times"></i>
         <% end %>
