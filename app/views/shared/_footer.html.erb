@@ -1,3 +1,8 @@
 <div class="footer">
-
+  <% unless params[:controller] == "users" || params[:controller] == "allergies" && params[:action] == "show" && !user_signed_in? %>
+  <%= link_to user_path(current_user) do %>
+  <i class="fas fa-arrow-left"></i>
+  <h3>BACK</h3>
+  <% end %>
+  <% end %>
 </div>

@@ -18,15 +18,27 @@
 /* Logo */
 .navbar-brand {
   flex-grow: 1;
-  display: flex;
-  align-items: center;
   padding: 0;
+  a {
+    align-items: center;
+    color: $app-green;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    &:hover {
+      text-decoration: none;
+      color: $green;
+    }
+    p {
+      font-family: 'Milonga', cursive;
+      margin-bottom: 0;
+      margin-left: 5px;
+    }
+  }
 }
-.navbar-logo {
-  color: $app-green;
-  font-size: 35px;
-  &:hover {
-    color: gray;
+@media all and (max-width: 750px) {
+  .navbar-brand a p {
+    font-size: 20px;
   }
 }
 
@@ -89,6 +101,6 @@
   cursor: pointer;
   font-size: 30px;
   &:hover {
-    color: gray;
+    color: $green;
   }
 }
