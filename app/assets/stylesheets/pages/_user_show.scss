@@ -1,11 +1,14 @@
 .user-container {
-  justify-content: space-between;
-  padding-bottom: 50px;
+  justify-content: flex-start;
+  // padding-bottom: px;
 }
-.change-country {
-  .fas {
-    font-size: 20px;
-  }
+// .change-country {
+//   .fas {
+//     font-size: 20px;
+//   }
+// }
+.user-info {
+  // margin-bottom: 10px;
 }
 .user-allergies-list {
   margin-top: 20px;
@@ -26,23 +29,27 @@
     align-items: center;
     &:hover {
       text-decoration: none;
-      color: green;
+      color: $light-green;
       opacity: 0.5;
     }
   }
 }
 .add-text {
+  font-size: 27px;
   padding-bottom: 10px;
-  color: green;
+  color: $app-green;
   cursor: pointer;
 }
 .user-allergy {
+  margin: 10px;
+  border: 1px solid $light-green;
+  border-radius: 10px;
   background-color: white;
-  margin: 5px;
+  // margin: 5px;
   width: 350px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 3px 10px;
   position: relative;
@@ -52,6 +59,7 @@
     padding-right: 8px;
   }
   a {
+    flex-grow: 1;
     height: auto;
     color: gray;
     &:hover {
@@ -59,10 +67,12 @@
       color: black;
     }
   }
-  .cross {
+  .allergy-cross {
     position: absolute;
     right: 10px;
-    display: flex;
+    text-align: right;
+    top: 8px;
+    // display: flex;
     padding-top: 6px;
     padding-left: 10px;
     font-size: 20px;
@@ -89,14 +99,23 @@
 }
 .emergency-contacts-link {
   padding: 10px;
+  margin-bottom: 10px;
   a {
     color: red;
+    font-weight: bold;
     &:hover {
       text-decoration: none;
       color: red;
-      font-weight: bold;
+      font-weight: normal;
     }
   }
+}
+.change-language {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 

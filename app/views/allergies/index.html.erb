@@ -6,13 +6,13 @@
     <%= text_field_tag :allergy_name,
     params[:allergy_name],
     class: "form-control search-input typed-text" %>
-      <%= submit_tag 'Add', class: "form-control submit-allergy-button hidden" %>
+      <%= submit_tag 'Add', class: "submit-allergy-button button hidden" %>
       <% end %>
 
     <div class="list">
       <ul class="results">
         <% @allergies.each do |allergy| %>
-        <% existing_allergy = UserAllergy.where(allergy_id: allergy.id) %>
+        <% existing_allergy = UserAllergy.find_by_allergy(allergy.id, current_user.id) %>
         <li class="hidden">
           <p class="button <%= "current" if !existing_allergy.empty? %>"><%= link_to allergy.name, allergy_user_allergies_path(allergy), method: :post %></p>
         </li>

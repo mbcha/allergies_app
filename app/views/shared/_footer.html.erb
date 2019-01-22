@@ -1,5 +1,10 @@
 <div class="footer">
-  <% unless params[:controller] == "users" || params[:controller] == "allergies" && params[:action] == "show" && !user_signed_in? %>
+<% if params[:controller] == 'countries'|| params[:controller] == 'languages'|| params[:controller] == 'translations'|| params[:controller] == 'users' && params[:action] != 'show'|| params[:controller] == 'allergies' && params[:action] != 'show'
+%>
+
+<%# end %>
+
+  <%# unless params[:controller] == "devise/sessions" || params[:controller] == "devise/registrations" || params[:controller] == "users"  && params[:action] == "show" || params[:controller] == "allergies" && params[:action] == "show" && !user_signed_in? %>
   <%= link_to user_path(current_user) do %>
   <i class="fas fa-arrow-left"></i>
   <h3>BACK</h3>

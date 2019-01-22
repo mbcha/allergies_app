@@ -10,6 +10,7 @@
     border-color: $app-green;
     outline: none;
     color: $app-green;
+    text-decoration: none;
     a {
       text-decoration: none;
       color: $app-green;
@@ -26,5 +27,27 @@
   color: $app-green;
   a {
     color: $app-green;
+  }
+}
+
+.back-btn {
+  border-radius: 10px;
+
+}
+.select-btn {
+  font-weight: 400;
+  margin: 5px;
+  color: $text-gray;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.change-btn {
+  color: $app-green;
+  border: none;
+  padding: 0 20px;
+  font-weight: 400;
+  &:hover {
+    color: $green;
   }
 }

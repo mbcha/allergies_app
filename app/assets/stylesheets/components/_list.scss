@@ -1,12 +1,13 @@
 .list {
   ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    // flex-wrap: wrap;
     padding-inline-start: 0px;
     list-style-type: none;
-    width: 400px;
+    width: 600px;
   }
   li {
     border: 1 solid gray;
