@@ -1,3 +1,17 @@
 .translation-container {
-  justify-content: space-between !important;
+  justify-content: space-between;
+  img {
+    margin: 10px;
+  }
+  i {
+    margin: 0 15px;
+    color: red;
+  }
+}
+.translate-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
 }

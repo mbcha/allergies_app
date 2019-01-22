@@ -1,11 +1,14 @@
 <div class="wrapper translation-container">
 
   <h1><%= @translation.allergy.name %></h1>
-  <h2><%= @translation_warning %><i class="fas fa-exclamation-triangle"></i></h2>
-  <h3><%= @translation_message %></h3>
-  <h2><%= @translation.name %></h2>
 
-  <% unless @translation.allergy.photo.nil? %>
+  <div class="translate-info">
+    <h2><i class="fas fa-exclamation-triangle"></i><%= @translation_warning %></h2>
+    <h3><%= @translation_message %></h3>
+    <h2><%= @translation.name %></h2>
+  </div>
+
+  <% unless @translation.allergy.photo.file.nil? %>
   <%= cl_image_tag @translation.allergy.photo, height: 300, width: 300, crop: :fit, class: "allergy-image hidden" %>
   <label class="switch">
     <input type="checkbox" class="toggle-switch">

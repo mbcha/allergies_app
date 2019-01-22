@@ -43,6 +43,15 @@ const showResults = (event) => {
       submitAllergy.classList.remove('hidden');
     }
   });
+
+  if (allergiesDiv) {
+    if (!submitAllergy.classList.contains('hidden')) {
+      submitAllergy.value = "Add";
+      if (input.value != '') {
+        submitAllergy.value += ` '${input.value}'`;
+      }
+    }
+  }
 };
 
 const pickFirstResult = (event) => {

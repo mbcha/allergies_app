@@ -4,6 +4,7 @@
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin: 10px;
 }
 
 /* Hide default HTML checkbox */
@@ -39,11 +40,11 @@
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: $app-green;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px $light-green;
 }
 
 input:checked + .slider:before {

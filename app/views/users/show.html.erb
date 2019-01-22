@@ -8,8 +8,8 @@
     <h3>Chose a country or a language to be able to translate your <%= @user_allergies.nil? || @user_allergies.length == 1 ? "allergy" : "allergies" %></h3>
 
     <div class="change-language">
-      <%= link_to "Language", languages_path, class: "select-btn button" %>
       <%= link_to "Country", countries_path, class: "select-btn button" %>
+      <%= link_to "Language", languages_path, class: "select-btn button" %>
     </div>
 
     <% elsif @user.country_id.nil? %>
@@ -17,8 +17,8 @@
     <% @language = @user.language %>
 
     <div class="change-language">
-      <%= link_to "Change Language", languages_path, class: "change-btn button" %>
       <%= link_to "Choose a Country", countries_path, class: "change-btn button" %>
+      <%= link_to "Change Language", languages_path, class: "change-btn button" %>
     </div>
 
     <h2><%= @language.name %></h2>

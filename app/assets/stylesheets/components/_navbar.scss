@@ -52,7 +52,7 @@
 
 /* Navbar link */
 .navbar-link {
-  color: #616668;
+  color: $app-green;
   font-size: 14px;
 }
 .navbar-link:hover {
@@ -102,5 +102,15 @@
   font-size: 30px;
   &:hover {
     color: $green;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .navbar-link {
+    padding: 5px;
+  }
+  .navbar {
+    padding: 0 10px;
+    padding-top: 5px;
   }
 }
