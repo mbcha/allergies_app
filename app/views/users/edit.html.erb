@@ -1,18 +1,20 @@
 <div class="wrapper user-edit-container">
   <h1>Edit your message to translate</h1>
 
-  <div class="form">
+  <div class="form edit-user-form">
     <%= form_for(@user, method: :patch) do |f| %>
     <h2>Current Message: "<%= @user.message %>"</h2>
-    <%= f.text_field :message, class: "form-control" %>
-    <%= f.submit "Update" %>
+    <%= f.text_field :message, class: "form-control field" %>
+    <%= f.submit "Update", class: "button" %>
     <% end %>
   </div>
 
   <div class="translations-page">
     <h3>This is what the translation page will look like</h3>
-    <p>"Warning!"</p>
-    <p>Your Message: e.g. "This person suffers from food allergies"</p>
-    <p>Allergy Name: e.g. "Banana, Gluten"</p>
+    <div class="page-look-like">
+      <p>"Warning!"</p>
+      <p>Your Message: e.g. "This person suffers from food allergies"</p>
+      <p>Allergy Name: e.g. "Banana, Gluten"</p>
+    </div>
   </div>
 </div>

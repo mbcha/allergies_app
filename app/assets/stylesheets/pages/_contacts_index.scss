@@ -1,10 +1,15 @@
 .contacts-container {
-  justify-content: space-between
+  justify-content: flex-start;
+  .button {
+    background-color: $background-gray;
+    margin: 10px;
+  }
 }
 
 .contacts {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   // width: 80vw;
@@ -12,32 +17,118 @@
 .contact-info {
   position: relative;
   padding: 0 20px;
-  margin: 5px 10px;
+  margin: 20px 10px 5px 10px;
   background: white;
+  border: 1px solid $light-green;
+  border-radius: 10px;
   max-width: 80vw;
   word-wrap: break-word;
+  h3 {
+    margin-top: 12.5px;
+  }
 
   .fa-pencil-alt {
     margin-left: 5px;
     position: absolute;
-    top: 5px;
-    right: 30px;
+    top: 5%;
+    right: 40px;
+    color: blue;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover, &:active, &:focus {
+    color: $blue;
+    outline: none;
+  }
   }
 }
 .contact {
-  margin-right: 20px;
-  padding-right: 10px;
+  margin-top: 30px;
   max-width: 70vw;
+  .field {
+    background-color: $background-gray;
+  }
 }
 .cross {
   color: red;
   position: absolute;
-  top: 5px;
+  top: 0%;
   right: 10px;
+  font-size: 27px;
+
+  &:hover, &:active, &:focus {
+    color: $red;
+    outline: none;
+  }
+}
+.field {
+  text-align: center;
+  margin: 10px;
+  border: 1px solid $light-green;
+  border-radius: 10px;
+  background-color: white;
+  width: 300px;
+  padding: 3px 10px;
+  &:active, &:focus {
+    outline: none;
+  }
+
 }
 .new-contact-form {
-  input {
-    text-align: center;
-    margin: 5px 0;
+  #new_contact {
+    margin-top: 40px;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
   }
+}
+.new-contact-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+  cursor: pointer;
+  &:hover, &:active, &:focus {
+    h2, i {
+      color: $green !important;
+    }
+    .add-contact {
+      border-color: $green;
+    }
+  }
+}
+.add-contact {
+  border-radius: 50%;
+  border: 3px solid $app-green;
+  height: 50px;
+  width: 50px;
+  &:hover {
+    color: $green !important;
+  }
+
+  i {
+    margin-top: 5px;
+    color: $app-green;
+    text-align: center;
+    &:hover, &:active, &:focus {
+      color: $green;
+    }
+  }
+}
+.plus-sym {
+  color: $app-green;
+  &:active, &:hover, &:focus {
+    color: $green;
+    box-shadow: none;
+    outline: none !important;
+  }
+}
+.form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-form {
+  margin-top: 15px;
 }

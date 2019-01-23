@@ -2,60 +2,62 @@
   <h1>Emergency Contacts</h1>
   <div class="contacts fadein">
     <% @contacts.each do |contact| %>
-    <div class="contact-info">
+    <% noSpaceName = contact.name.gsub(" ", "") %>
+    <div class="contact-info info-<%= noSpaceName%> fadein">
       <div class="contact">
-      <%= form_for([@user, contact], method: :patch) do |f| %>
-      <% noSpaceName = contact.name.gsub(" ", "") %>
 
-      <i class="fas fa-pencil-alt edit-<%=noSpaceName%>"></i>
+        <i class="fas fa-pencil-alt edit-<%=noSpaceName%>"></i>
+        <h3 class="contact-name contact-name-<%=noSpaceName%>"><%= contact.name %></h3>
+        <h4 class="contact-relationship-<%=noSpaceName%>"><%= contact.relationship %></h4>
+        <p class="contact-email-<%=noSpaceName%>"><%= contact.email %></p>
+        <p class="contact-number-<%=noSpaceName%>"><%= contact.phone_number %></p>
 
-      <h3 class="contact-name contact-name-<%=noSpaceName%>"><%= contact.name %></h3>
-
-      <%= f.text_field :name,
-      class: "form-control contact-name-edit-#{noSpaceName} hidden" %>
-
-      <h4 class="contact-relationship-<%=noSpaceName%>"><%= contact.relationship %></h4>
-
-      <%= f.text_field :relationship,
-      class: "form-control contact-relationship-edit-#{noSpaceName} hidden" %>
-
-      <p class="contact-email-<%=noSpaceName%>"><%= contact.email %></p>
-
-      <%= f.text_field :email,
-      class: "form-control contact-email-edit-#{noSpaceName} hidden" %>
-
-      <p class="contact-number-<%=noSpaceName%>"><%= contact.phone_number %></p>
-
-      <%= f.text_field :phone_number,
-      class: "form-control contact-number-edit-#{noSpaceName} hidden" %>
-
-      <%= f.submit "Edit", class: "contact-edit-submit-#{noSpaceName} hidden" %>
-
-      <% end %>
-
-      <%= link_to user_contact_path(@user, contact), method: :delete, class: "cross" do %>
-      <i class="fas fa-times"></i>
-      <% end %>
+        <%= link_to user_contact_path(@user, contact), method: :delete, class: "cross" do %>
+        <i class="fas fa-times"></i>
+        <% end %>
       </div>
+    </div>
+    <div class="contact-form form-<%= noSpaceName %> hidden fadein">
+      <%= form_for([@user, contact], method: :patch) do |f| %>
+      <%= f.text_field :name,
+      class: "form-control contact-name-edit-#{noSpaceName} field" %>
+      <%= f.text_field :relationship,
+      class: "form-control contact-relationship-edit-#{noSpaceName} field" %>
+      <%= f.text_field :email,
+      class: "form-control contact-email-edit-#{noSpaceName} field" %>
+      <%= f.text_field :phone_number,
+      class: "form-control contact-number-edit-#{noSpaceName} field" %>
+
+      <div class="form-button">
+        <p class="edit-cancel-<%= noSpaceName %> fadein button">Cancel</p>
+        <%= f.submit "Save", class: "fadein contact-edit-submit-#{noSpaceName} button" %>
+      </div>
+      <% end %>
     </div>
     <% end %>
   </div>
 
-  <h4 class="new-contact-button add-text fadein">
-    ADD NEW CONTACT
-  </h4>
+  <div class="new-contact-button fadein">
+    <% if @contacts.empty? %>
+    <h2 class="add-text">ADD NEW CONTACT</h2>
+    <% end %>
+    <div class="add-contact">
+      <i class="fas fa-plus btn plus-sym"></i>
+    </div>
+  </div>
 
   <div class="new-contact-form hidden fadein">
     <%= form_for([@user, Contact.new]) do |f| %>
-    <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
-    <%= f.text_field :relationship, placeholder: "Relationship", class: "form-control" %>
-    <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
-    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "form-control" %>
-    <%= f.submit "Add Contact" %>
-    <% end %>
-    <button class="add-cancel fadein">Cancel</button>
-  </div>
+    <%= f.text_field :name, placeholder: "Name", class: "field" %>
+    <%= f.text_field :relationship, placeholder: "Relationship", class: "field" %>
+    <%= f.text_field :email, placeholder: "Email", class: "field" %>
+    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "field" %>
 
-  <%#= link_to "Back", user_path(@user), class: "btn btn-info previous-country" %>
+    <div class="form-button fadein">
+      <p class="add-cancel button">Cancel</p>
+      <%= f.submit "Add Contact", class: "button" %>
+    </div>
+      <% end %>
+  </div>
 
 </div>

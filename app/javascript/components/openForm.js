@@ -13,27 +13,39 @@ function openForm() {
       let compact = name.innerText.replace(" ", "")
 
       let edit = document.querySelector(`.edit-${compact}`);
+      let editCancel = document.querySelector(`.edit-cancel-${compact}`);
 
-      let contactRelationship = document.querySelector(`.contact-relationship-${compact}`);
-      let contactEmail = document.querySelector(`.contact-email-${compact}`);
-      let contactNumber = document.querySelector(`.contact-number-${compact}`);
-      let editName = document.querySelector(`.contact-name-edit-${compact}`);
-      let editRelationship = document.querySelector(`.contact-relationship-edit-${compact}`);
-      let editEmail = document.querySelector(`.contact-email-edit-${compact}`);
-      let editNumber = document.querySelector(`.contact-number-edit-${compact}`);
-      let submit = document.querySelector(`.contact-edit-submit-${compact}`);
+      let form = document.querySelector(`.form-${compact}`);
+      let info = document.querySelector(`.info-${compact}`);
+
+      // console.log(form)
+      // let contactRelationship = document.querySelector(`.contact-relationship-${compact}`);
+      // let contactEmail = document.querySelector(`.contact-email-${compact}`);
+      // let contactNumber = document.querySelector(`.contact-number-${compact}`);
+      // let editName = document.querySelector(`.contact-name-edit-${compact}`);
+      // let editRelationship = document.querySelector(`.contact-relationship-edit-${compact}`);
+      // let editEmail = document.querySelector(`.contact-email-edit-${compact}`);
+      // let editNumber = document.querySelector(`.contact-number-edit-${compact}`);
+      // let submit = document.querySelector(`.contact-edit-submit-${compact}`);
 
       edit.addEventListener('click', (event) => {
-        name.classList.toggle('hidden');
-        contactRelationship.classList.toggle('hidden');
-        contactEmail.classList.toggle('hidden');
-        contactNumber.classList.toggle('hidden');
-        editName.classList.toggle('hidden');
-        editRelationship.classList.toggle('hidden');
-        editEmail.classList.toggle('hidden');
-        editNumber.classList.toggle('hidden');
-        submit.classList.toggle('hidden');
+        form.classList.toggle('hidden');
+        info.classList.toggle('hidden');
+        // name.classList.toggle('hidden');
+        // contactRelationship.classList.toggle('hidden');
+        // contactEmail.classList.toggle('hidden');
+        // contactNumber.classList.toggle('hidden');
+        // editName.classList.toggle('hidden');
+        // editRelationship.classList.toggle('hidden');
+        // editEmail.classList.toggle('hidden');
+        // editNumber.classList.toggle('hidden');
+        // submit.classList.toggle('hidden');
       })
+      editCancel.addEventListener('click', (event) => {
+        form.classList.add('hidden');
+        info.classList.remove('hidden');
+      // contacts.classList.remove('hidden');
+    })
     })
   }
   if (emergencyDiv) {

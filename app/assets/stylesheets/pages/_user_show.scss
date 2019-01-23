@@ -28,10 +28,12 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    &:hover {
+    &:hover, &:active, &:focus {
       text-decoration: none;
-      color: $light-green;
+      color: $green;
       opacity: 0.5;
+      outline: none !important;
+
     }
   }
 }
@@ -94,8 +96,8 @@
   i {
     color: $app-green;
     text-align: center;
-    &:hover {
-      color: $app-green;
+    &:hover, &:active, &:focus {
+      color: $green;
     }
   }
 }
