@@ -5,6 +5,7 @@
   }
   h2 {
     margin-top: 30px;
+    min-width: 60px;
     i {
       margin-right: 15px;
       color: red;
@@ -31,6 +32,11 @@
   .switch {
     position: absolute;
     left: 100%;
-    top: -10%;
+    top: -25%;
+  }
+}
+@media all and (max-width: 750px) {
+  .translate-info {
+    width: 80vw;
   }
 }

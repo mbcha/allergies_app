@@ -1,17 +1,19 @@
 <div class="wrapper translations-container">
   <h1><i class="fas fa-exclamation-triangle exclamation"></i><%= @translation_warning %></h1>
-  <h3><%= @translation_message %></h3>
 
-  <!-- <div class="all-translations"> -->
+  <div class="translate-info">
+    <h3><%= @translation_message %></h3>
+
+    <!-- <div class="all-translations"> -->
     <% @translations.each do |translation| %>
 
     <div class="translation-images">
       <h2 class="translated-allergy"><%= translation.name %>
-      <% unless translation.allergy.photo.file.nil? %>
-      <label class="switch">
-        <input type="checkbox" class="toggle-switch <%= translation.name %>">
-        <span class="slider round"></span>
-      </label>
+        <% unless translation.allergy.photo.file.nil? %>
+        <label class="switch">
+          <input type="checkbox" class="toggle-switch <%= translation.name %>">
+          <span class="slider round"></span>
+        </label>
       </h2>
     </div>
 
@@ -19,5 +21,5 @@
     <% end %>
 
     <% end %>
-  <!-- </div> -->
+  </div>
 </div>
