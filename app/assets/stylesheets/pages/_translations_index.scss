@@ -16,6 +16,7 @@
     margin: 60px 0;
   }
   h2 {
+    min-width: 60px;
   }
 }
 .translated-allergy {
@@ -31,13 +32,13 @@
   // justify-content: center;
   // align-items: center;
   h2 {
-  position: relative;
+    position: relative;
   }
-    .switch {
+  .switch {
     position: absolute;
     left: 100%;
-    top: -25%;
-    }
+    top: -15%;
+  }
 }
 .all-translations {
   // flex-grow: 1;

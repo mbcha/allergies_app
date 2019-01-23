@@ -69,33 +69,6 @@ ActiveRecord::Schema.define(version: 2019_01_15_160549) do
     t.index ["user_id"], name: "index_user_allergies_on_user_id"
   end
 
-  create_table "user_countries", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "country_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_user_countries_on_country_id"
-    t.index ["user_id"], name: "index_user_countries_on_user_id"
-  end
-
-  create_table "user_languages", force: :cascade do |t|
-    t.bigint "language_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["language_id"], name: "index_user_languages_on_language_id"
-    t.index ["user_id"], name: "index_user_languages_on_user_id"
-  end
-
-  create_table "user_translations", force: :cascade do |t|
-    t.bigint "translation_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["translation_id"], name: "index_user_translations_on_translation_id"
-    t.index ["user_id"], name: "index_user_translations_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

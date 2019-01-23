@@ -59,15 +59,15 @@
     </div>
     <% end %>
 
+    <% i = 0 %>
     <ul>
-      <% i = 0 %>
       <% @user_allergies.each do |user_allergy| %>
       <% allergy = Allergy.find(user_allergy.allergy.id) %>
 
       <% if @user.country_id.nil? && @user.language_id.nil? %>
       <li class="user-allergy">
-        <h3 class=link-to-translation"><%= allergy.name %></h3>
-        <%= link_to user_allergy_path(allergy), method: :delete, class: "cross" do %>
+        <div class=link-to-translation"><%= allergy.name %></div>
+        <%= link_to user_allergy_path(allergy), method: :delete, class: "allergy-cross" do %>
         <i class="fas fa-times"></i>
         <% end %>
       </li>
@@ -91,7 +91,7 @@
       <% end %>
 
     </ul>
-    <% if i == @user_allergies.length %>
+    <% if i == @user_allergies.length && i > 1 %>
     <%= link_to "Translate All", language_translations_path(@language), class: "translate-all button" %>
     <% end %>
   </div>
