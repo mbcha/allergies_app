@@ -87,13 +87,13 @@
         <% end %>
       </li>
 
-      <% if i == @user_allergies.length %>
-      <%= link_to "Translate All", language_translations_path(@language) %>
-      <% end %>
       <% end %>
       <% end %>
 
     </ul>
+    <% if i == @user_allergies.length %>
+    <%= link_to "Translate All", language_translations_path(@language), class: "translate-all button" %>
+    <% end %>
   </div>
 
   <div class="emergency-contacts-link">

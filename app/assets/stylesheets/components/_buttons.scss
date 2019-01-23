@@ -6,6 +6,7 @@
   border: 3px solid $text-gray;
   cursor: pointer;
   text-align: center;
+  color: $text-gray;
   &:active, &:focus, &:hover {
     border-color: $app-green;
     outline: none;

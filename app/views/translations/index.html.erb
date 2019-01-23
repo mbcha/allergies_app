@@ -1,11 +1,23 @@
 <div class="wrapper translations-container">
-  <h2><%= @translation_warning %><i class="fas fa-exclamation-triangle"></i></h2>
+  <h1><i class="fas fa-exclamation-triangle exclamation"></i><%= @translation_warning %></h1>
   <h3><%= @translation_message %></h3>
-  <div class="translation-names">
-    <% @translations.each do |translation| %>
-    <h3><%= translation.name %></h3>
-    <% end %>
-  </div>
 
-  <%= link_to "Back", user_path(current_user), class: "btn btn-info previous-country" %>
+  <!-- <div class="all-translations"> -->
+    <% @translations.each do |translation| %>
+
+    <div class="translation-images">
+      <h2 class="translated-allergy"><%= translation.name %>
+      <% unless translation.allergy.photo.file.nil? %>
+      <label class="switch">
+        <input type="checkbox" class="toggle-switch <%= translation.name %>">
+        <span class="slider round"></span>
+      </label>
+      </h2>
+    </div>
+
+    <%= cl_image_tag translation.allergy.photo, height: 300, width: 300, crop: :fit, class: "allergy-image hidden fadein #{translation.name}" %>
+    <% end %>
+
+    <% end %>
+  <!-- </div> -->
 </div>

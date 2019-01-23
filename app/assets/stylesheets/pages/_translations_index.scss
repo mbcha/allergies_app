@@ -1,0 +1,46 @@
+.translations-container {
+  justify-content: flex-start;
+  img {
+    margin: 10px;
+  }
+  h1 {
+    word-wrap: wrap;
+    margin-bottom: 30px;
+    // max-width: 100vw;
+    i {
+      margin-right: 15px;
+      color: red;
+    }
+  }
+  h3 {
+    margin: 60px 0;
+  }
+  h2 {
+  }
+}
+.translated-allergy {
+  display: list-item;
+  .switch {
+    // position: absolute;
+    // left: 100%;
+    // top: 100%;
+  }
+}
+.translation-images {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  h2 {
+  position: relative;
+  }
+    .switch {
+    position: absolute;
+    left: 100%;
+    top: -10%;
+    }
+}
+.all-translations {
+  // flex-grow: 1;
+  // margin-bottom: 30px;
+  // transition: flex-grow 10s linear;
+}

@@ -5,16 +5,22 @@
   <div class="translate-info">
     <h2><i class="fas fa-exclamation-triangle"></i><%= @translation_warning %></h2>
     <h3><%= @translation_message %></h3>
-    <h2><%= @translation.name %></h2>
-  </div>
 
-  <% unless @translation.allergy.photo.file.nil? %>
-  <%= cl_image_tag @translation.allergy.photo, height: 300, width: 300, crop: :fit, class: "allergy-image hidden" %>
-  <label class="switch">
-    <input type="checkbox" class="toggle-switch">
-    <span class="slider round"></span>
-  </label>
-  <% end %>
+    <div class="all-translations">
+      <div class="translation-image">
+        <h2 class="translation-name"><%= @translation.name %>
+
+          <% unless @translation.allergy.photo.file.nil? %>
+          <label class="switch">
+            <input type="checkbox" class="toggle-switch">
+            <span class="slider round"></span>
+          </label>
+        </h2>
+      </div>
+      <%= cl_image_tag @translation.allergy.photo, height: 300, width: 300, crop: :fit, class: "allergy-image hidden fadein" %>
+      <% end %>
+    </div>
+  </div>
 
 
   <%#= link_to "Back", user_path(current_user), class: "btn btn-info previous-country" %>

@@ -21,6 +21,7 @@
   align-items: center;
   ul {
     padding-inline-start: 0px;
+    // justify-content: space-around;
   }
   a {
     display: flex;
@@ -100,7 +101,7 @@
 }
 .emergency-contacts-link {
   padding: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   a {
     color: red;
     font-weight: bold;
@@ -118,7 +119,13 @@
   align-items: center;
   flex-wrap: wrap;
 }
-
+.translate-all {
+  display: initial !important;
+  font-size: 20px !important;
+  &:hover {
+    color: $app-green !important;
+  }
+}
 
 @media all and (max-width: 750px) {
   .user-allergies-list {
