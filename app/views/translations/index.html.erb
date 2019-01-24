@@ -6,18 +6,19 @@
 
     <!-- <div class="all-translations"> -->
     <% @translations.each do |translation| %>
+    <% name = translation.name.gsub(" ", "") %>
 
     <div class="translation-images">
       <h2 class="translated-allergy"><%= translation.name %>
         <% unless translation.allergy.photo.file.nil? %>
         <label class="switch">
-          <input type="checkbox" class="toggle-switch <%= translation.name %>">
+          <input type="checkbox" class="toggle-switch <%= name %>">
           <span class="slider round"></span>
         </label>
       </h2>
     </div>
 
-    <%= cl_image_tag translation.allergy.photo, height: 300, width: 300, crop: :fit, class: "allergy-image hidden fadein #{translation.name}" %>
+    <%= cl_image_tag translation.allergy.photo, height: 300, width: 300, crop: :fit, class: "allergy-image hidden fadein #{name}" %>
     <% end %>
 
     <% end %>

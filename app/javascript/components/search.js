@@ -49,9 +49,6 @@ const showResults = (event) => {
       submitAllergy.value = "Add";
       if (input.value != '') {
         submitAllergy.value += ` '${input.value}'`;
-        submitAllergy.addEventListener('click', (event) => {
-          form.submit();
-        })
       }
     }
   }
@@ -59,6 +56,7 @@ const showResults = (event) => {
 
 const pickFirstResult = (event) => {
   if (submitAllergy.classList.contains('hidden')) {
+    console.log(submitAllergy)
     event.preventDefault();
     let first_result = document.querySelector(".selected");
     if (first_result && allergiesDiv == null)
@@ -70,9 +68,13 @@ const pickFirstResult = (event) => {
       input.value = first_result.innerText
       form.submit();
     }
-  }
-  else
-  {
+    else
+    {
+      form.submit();
+    }
+  } else {
+    console.log("yes")
+
     form.submit();
   }
 };
