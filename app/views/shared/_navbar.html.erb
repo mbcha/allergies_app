@@ -30,7 +30,15 @@
         <%= link_to edit_user_path(current_user) do %>
           <i class="fa fa-cog"></i>
           <h6>
-          Settings
+          Translation Settings
+          </h6>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to edit_user_registration_path(current_user) do %>
+          <i class="fas fa-pencil-alt"></i>
+          <h6>
+          Edit Account Details
           </h6>
         <% end %>
       </li>

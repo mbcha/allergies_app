@@ -18,7 +18,6 @@ user = User.create(
   password: "testing"
   )
 
-
 puts "Adding Languages..."
 
 language_codes = []
@@ -121,7 +120,7 @@ Allergy.all.each do |allergy|
     doc_photos = Nokogiri::HTML(html_photos)
 
     results = doc_photos.search('.listing-primary')
-    unless results.empty?
+    if !results.empty?
       url = results.search('.item img').first['src']
 
       allergy.update(remote_photo_url: url)

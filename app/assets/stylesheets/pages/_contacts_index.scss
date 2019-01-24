@@ -36,9 +36,9 @@
     font-size: 20px;
     cursor: pointer;
     &:hover, &:active, &:focus {
-    color: $blue;
-    outline: none;
-  }
+      color: $blue;
+      outline: none;
+    }
   }
 }
 .contact {
@@ -66,12 +66,19 @@
   border: 1px solid $light-green;
   border-radius: 10px;
   background-color: white;
-  width: 300px;
+  // width: 300px;
   padding: 3px 10px;
   &:active, &:focus {
     outline: none;
+  border: 1px solid $light-green;
+  box-shadow: none;
   }
 
+}
+
+.new-contact-field {
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 .new-contact-form {
   #new_contact {
@@ -128,6 +135,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 .contact-form {
   margin-top: 15px;

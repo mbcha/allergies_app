@@ -18,37 +18,33 @@ function openForm() {
       let form = document.querySelector(`.form-${compact}`);
       let info = document.querySelector(`.info-${compact}`);
 
-      // console.log(form)
-      // let contactRelationship = document.querySelector(`.contact-relationship-${compact}`);
-      // let contactEmail = document.querySelector(`.contact-email-${compact}`);
-      // let contactNumber = document.querySelector(`.contact-number-${compact}`);
-      // let editName = document.querySelector(`.contact-name-edit-${compact}`);
-      // let editRelationship = document.querySelector(`.contact-relationship-edit-${compact}`);
-      // let editEmail = document.querySelector(`.contact-email-edit-${compact}`);
-      // let editNumber = document.querySelector(`.contact-number-edit-${compact}`);
-      // let submit = document.querySelector(`.contact-edit-submit-${compact}`);
-
       edit.addEventListener('click', (event) => {
         form.classList.toggle('hidden');
         info.classList.toggle('hidden');
-        // name.classList.toggle('hidden');
-        // contactRelationship.classList.toggle('hidden');
-        // contactEmail.classList.toggle('hidden');
-        // contactNumber.classList.toggle('hidden');
-        // editName.classList.toggle('hidden');
-        // editRelationship.classList.toggle('hidden');
-        // editEmail.classList.toggle('hidden');
-        // editNumber.classList.toggle('hidden');
-        // submit.classList.toggle('hidden');
       })
       editCancel.addEventListener('click', (event) => {
         form.classList.add('hidden');
         info.classList.remove('hidden');
-      // contacts.classList.remove('hidden');
     })
     })
   }
   if (emergencyDiv) {
+    $(document).ready(function () {
+      if(window.location.href.indexOf("#newcontact") > -1) {
+        newContactForm.classList.remove('hidden');
+        newContactButton.classList.add('hidden');
+        contacts.classList.add('hidden');
+      } else if(window.location.href.indexOf("#updatecontact") > -1) {
+        let a = window.location.href;
+        let b = a.match(/#([a-z]+)#/i)
+
+        let form = document.querySelector(`.form-${b[1]}`);
+        let info = document.querySelector(`.info-${b[1]}`);
+
+        form.classList.toggle('hidden');
+        info.classList.toggle('hidden');
+      }
+    })
     newContactButton.addEventListener('click', (event) => {
       newContactForm.classList.remove('hidden');
       newContactButton.classList.add('hidden');

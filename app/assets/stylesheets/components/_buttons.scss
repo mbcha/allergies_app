@@ -7,11 +7,13 @@
   cursor: pointer;
   text-align: center;
   color: $text-gray;
+  background-color: $background-gray;
   &:active, &:focus, &:hover {
     border-color: $app-green;
-    outline: none;
+    outline: none !important;
     color: $app-green;
     text-decoration: none;
+    box-shadow: none !important;
     a {
       text-decoration: none;
       color: $app-green;

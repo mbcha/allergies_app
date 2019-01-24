@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @contacts = Contact.where("user_id = ?", @user.id)
+    @contacts = Contact.where("user_id = ?", current_user.id)
     authorize @contacts
   end
 
@@ -13,7 +13,8 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to user_contacts_path(user)
     else
-      render :new
+      flash[:new_not_valid] = @contact.errors
+      redirect_to user_contacts_path(user) + "#newcontact"
     end
   end
 
@@ -21,8 +22,13 @@ class ContactsController < ApplicationController
     contact = Contact.find(params[:id])
     authorize contact
     contact.update(contact_params)
-    contact.save
-    redirect_to user_contacts_path(current_user)
+    if contact.save
+      redirect_to user_contacts_path(current_user)
+    else
+      flash[:update_not_valid] = contact.errors
+      name = contact.name.gsub(" ", "")
+      redirect_to user_contacts_path(current_user) + "##{name}" + "#updatecontact"
+    end
   end
 
   def destroy

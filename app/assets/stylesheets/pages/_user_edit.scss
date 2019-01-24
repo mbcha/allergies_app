@@ -1,24 +1,51 @@
 .user-edit-container {
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 .translations-page {
-  flex: 1;
+  // flex: 1;
+  margin-top: 40px;
+
+
 }
 .edit-user-form {
-  input {
-
-    // text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .field {
+    width: 400px;
+    text-align: center;
     // margin: 10px;
     // border: 1px solid $light-green;
     // border-radius: 10px;
     // background-color: white;
   }
 }
+.current-message {
+  color: gray;
+}
+.page-info {
+  color: $app-green;
+}
 .page-look-like {
+  padding: 20px 10px;
   text-align: center;
-  margin: 10px;
+  // margin: 10px;
   border: 1px solid $light-green;
   border-radius: 10px;
   background-color: white;
 
+}
+.settings-container {
+  width: 600px;
+  // margin-top: 30px;
+}
+@media all and (max-width: 750px) {
+  .edit-user-form {
+    .field {
+      max-width: 80vw;
+    }
+  }
+  .settings-container {
+    max-width: 80vw;
+  }
 }

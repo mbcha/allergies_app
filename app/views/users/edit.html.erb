@@ -1,20 +1,25 @@
 <div class="wrapper user-edit-container">
-  <h1>Edit your message to translate</h1>
+  <h1>Translation Settings</h1>
 
-  <div class="form edit-user-form">
-    <%= form_for(@user, method: :patch) do |f| %>
-    <h2>Current Message: "<%= @user.message %>"</h2>
-    <%= f.text_field :message, class: "form-control field" %>
-    <%= f.submit "Update", class: "button" %>
-    <% end %>
-  </div>
+  <div class="settings-container">
 
-  <div class="translations-page">
-    <h3>This is what the translation page will look like</h3>
-    <div class="page-look-like">
-      <p>"Warning!"</p>
-      <p>Your Message: e.g. "This person suffers from food allergies"</p>
-      <p>Allergy Name: e.g. "Banana, Gluten"</p>
+    <h2>Personalise the message you want to translate!</h2>
+    <h3 class="current-message">Current Message:</h3>
+    <h3 class="current-message">"<%= @user.message %>"</h3>
+    <div class="form edit-user-form">
+      <%= form_for(@user, method: :patch) do |f| %>
+      <%= f.text_field :message, value: "Your Message", class: "form-control field" %>
+      <%= f.submit "Update", class: "button" %>
+      <% end %>
+    </div>
+
+    <div class="translations-page">
+      <h4 class="page-info">This is what the translation page looks like:</h4>
+      <div class="page-look-like">
+        <p>"Warning!"</p>
+        <p>Your Message: e.g. "This person suffers from food allergies"</p>
+        <p>Allergy Name: e.g. "Banana, Gluten"</p>
+      </div>
     </div>
   </div>
 </div>

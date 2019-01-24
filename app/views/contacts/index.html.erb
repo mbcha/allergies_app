@@ -1,5 +1,6 @@
 <div class="wrapper contacts-container">
   <h1>Emergency Contacts</h1>
+
   <div class="contacts fadein">
     <% @contacts.each do |contact| %>
     <% noSpaceName = contact.name.gsub(" ", "") %>
@@ -20,13 +21,40 @@
     <div class="contact-form form-<%= noSpaceName %> hidden fadein">
       <%= form_for([@user, contact], method: :patch) do |f| %>
       <%= f.text_field :name,
-      class: "form-control contact-name-edit-#{noSpaceName} field" %>
+      class: "form-control contact-name-edit-#{noSpaceName} field new-contact-field" %>
+
+      <% if flash[:update_not_valid] %>
+      <% flash[:update_not_valid].each do |k, value| %>
+      <% if k == "name" %>
+      <div class="alert alert-error"><%= value[0] %></div>
+      <% end %>
+      <% end %>
+      <% end %>
+
       <%= f.text_field :relationship,
-      class: "form-control contact-relationship-edit-#{noSpaceName} field" %>
+      class: "form-control contact-relationship-edit-#{noSpaceName} field new-contact-field" %>
+
       <%= f.text_field :email,
-      class: "form-control contact-email-edit-#{noSpaceName} field" %>
+      class: "form-control contact-email-edit-#{noSpaceName} field new-contact-field" %>
+
+      <% if flash[:update_not_valid] %>
+      <% flash[:update_not_valid].each do |k, value| %>
+      <% if k == "email" %>
+      <div class="alert alert-error"><%= value[0] %></div>
+      <% end %>
+      <% end %>
+      <% end %>
+
       <%= f.text_field :phone_number,
-      class: "form-control contact-number-edit-#{noSpaceName} field" %>
+      class: "form-control contact-number-edit-#{noSpaceName} field new-contact-field" %>
+
+      <% if flash[:update_not_valid] %>
+      <% flash[:update_not_valid].each do |k, value| %>
+      <% if k == "phone_number" %>
+      <div class="alert alert-error"><%= value[0] %></div>
+      <% end %>
+      <% end %>
+      <% end %>
 
       <div class="form-button">
         <p class="edit-cancel-<%= noSpaceName %> fadein button">Cancel</p>
@@ -48,16 +76,44 @@
 
   <div class="new-contact-form hidden fadein">
     <%= form_for([@user, Contact.new]) do |f| %>
-    <%= f.text_field :name, placeholder: "Name", class: "field" %>
-    <%= f.text_field :relationship, placeholder: "Relationship", class: "field" %>
-    <%= f.text_field :email, placeholder: "Email", class: "field" %>
-    <%= f.text_field :phone_number, placeholder: "Phone Number", class: "field" %>
+    <%= f.text_field :name, placeholder: "Name*", class: "field new-contact-field" %>
+
+    <% if flash[:new_not_valid] %>
+    <% flash[:new_not_valid].each do |k, value| %>
+    <%# flash[:alert] ||= [] %>
+    <%# flash[:alert] << value[0] %>
+    <% if k == "name" %>
+    <div class="alert alert-error"><%= value[0] %></div>
+    <% end %>
+    <% end %>
+    <% end %>
+
+    <%= f.text_field :relationship, placeholder: "Relationship", class: "field new-contact-field" %>
+    <%= f.text_field :email, placeholder: "Email*", class: "field new-contact-field" %>
+
+    <% if flash[:new_not_valid] %>
+    <% flash[:new_not_valid].each do |k, value| %>
+    <% if k == "email" %>
+    <div class="alert alert-error"><%= value[0] %></div>
+    <% end %>
+    <% end %>
+    <% end %>
+
+    <%= f.text_field :phone_number, placeholder: "Phone Number*", class: "field new-contact-field" %>
+
+    <% if flash[:new_not_valid] %>
+    <% flash[:new_not_valid].each do |k, value| %>
+    <% if k == "phone_number" %>
+    <div class="alert alert-error"><%= value[0] %></div>
+    <% end %>
+    <% end %>
+    <% end %>
 
     <div class="form-button fadein">
       <p class="add-cancel button">Cancel</p>
       <%= f.submit "Add Contact", class: "button" %>
     </div>
-      <% end %>
+    <% end %>
   </div>
 
 </div>

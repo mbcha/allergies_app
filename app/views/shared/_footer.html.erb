@@ -1,14 +1,18 @@
 <div class="footer">
-  <% if params[:controller] == 'countries'|| params[:controller] == 'languages'|| params[:controller] == 'translations'|| params[:controller] == 'contacts'|| params[:controller] == 'users' && params[:action] != 'show'|| params[:controller] == 'allergies' && params[:action] != 'show'
-    %>
-    <%= link_to user_path(current_user) do %>
-    <i class="fas fa-arrow-left"></i>
-    <h3>BACK</h3>
-    <% end %>
-    <% elsif params[:controller] == 'users' && params[:action] == 'show' %>
-    <div class="emergency-contacts-link">
-      <%= link_to "Emergency Contacts", user_contacts_path(current_user) %>
-    </div>
-    <% end %>
-
+  <% if params[:controller] == 'countries'|| params[:controller] == 'languages'|| params[:controller] == 'translations'|| params[:controller] == 'contacts'|| params[:controller] == 'users' && params[:action] != 'show'|| params[:controller] == 'allergies' && params[:action] != 'show' %>
+  <%= link_to user_path(current_user) do %>
+  <i class="fas fa-arrow-left"></i>
+  <h3>BACK</h3>
+  <% end %>
+  <% elsif params[:controller] == 'users' && params[:action] == 'show' %>
+  <div class="emergency-contacts-link">
+    <%= link_to "Emergency Contacts", user_contacts_path(current_user) %>
   </div>
+  <% elsif params[:controller] == 'devise/registrations' && params[:action] == 'edit' %>
+  <%= link_to :back do %>
+  <i class="fas fa-arrow-left"></i>
+  <h3>BACK</h3>
+  <% end %>
+  <% end %>
+
+</div>
