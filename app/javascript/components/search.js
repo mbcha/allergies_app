@@ -49,22 +49,27 @@ const showResults = (event) => {
       submitAllergy.value = "Add";
       if (input.value != '') {
         submitAllergy.value += ` '${input.value}'`;
+        submitAllergy.addEventListener('click', (event) => {
+          form.submit();
+        })
       }
     }
   }
 };
 
 const pickFirstResult = (event) => {
-  event.preventDefault();
-  let first_result = document.querySelector(".selected");
-  if (first_result && allergiesDiv == null)
-  {
-    first_result.click();
-  }
-  else if (first_result)
-  {
-    input.value = first_result.innerText
-    form.submit();
+  if (submitAllergy.classList.contains('hidden')) {
+    event.preventDefault();
+    let first_result = document.querySelector(".selected");
+    if (first_result && allergiesDiv == null)
+    {
+      first_result.click();
+    }
+    else if (first_result)
+    {
+      input.value = first_result.innerText
+      form.submit();
+    }
   }
   else
   {
