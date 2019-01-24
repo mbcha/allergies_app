@@ -37,7 +37,7 @@ class TranslationsController < ApplicationController
   private
 
   def find_allergy_photo(allergy)
-    name = allergy.name.gsub(' ', '-').split(';')
+    name = allergy.name.gsub(' ', '-').split(/;|,/)
 
     html_photos = open("https://unsplash.com/search/photos/#{name[0]}").read
     doc_photos = Nokogiri::HTML(html_photos)
