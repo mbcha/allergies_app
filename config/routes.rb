@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'users#show'
+
+  authenticated :user do
+    root 'users#show'
+  end
+
+  root to: 'pages#home'
 
   resources :users, only: [:show, :edit, :update] do
     resources :contacts, only: [:index, :create, :update, :destroy]

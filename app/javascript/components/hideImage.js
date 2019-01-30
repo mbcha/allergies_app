@@ -8,7 +8,6 @@ function hideImage() {
       toggleSwitch.addEventListener('click', (event) => {
         names.forEach((name) => {
           let nameToMatch = name.innerText.replace(" ", "").trim()
-          console.log(nameToMatch);
           if (toggleSwitch.classList.contains(nameToMatch)) {
             images.forEach(image => {
               if (image.classList.contains(nameToMatch)) {

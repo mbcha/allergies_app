@@ -56,7 +56,6 @@ const showResults = (event) => {
 
 const pickFirstResult = (event) => {
   if (submitAllergy.classList.contains('hidden')) {
-    console.log(submitAllergy)
     event.preventDefault();
     let first_result = document.querySelector(".selected");
     if (first_result && allergiesDiv == null)
@@ -73,8 +72,6 @@ const pickFirstResult = (event) => {
       form.submit();
     }
   } else {
-    console.log("yes")
-
     form.submit();
   }
 };

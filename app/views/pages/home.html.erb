@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div class="app-info">
+    <h1>Allergies Translate</h1>
+    <h2>Easily translate your allergies while you travel</h2>
+    <div class="initial-buttons">
+      <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "button" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "button" %>
+    </div>
+  </div>
+
+  <!-- <h3>How it works:</h3> -->
+  <div class="app-instruction left first-instruction">
+    <h3>Choose a language or a country you are travelling to</h3>
+    <div class="left" style="background-image: linear-gradient(-225deg, rgba(227,246,228,0.5) 0%, rgba(227,246,228,0.4) 50%), url('<%=asset_path 'globe.png' %>');"></div>
+  </div>
+  <div class="app-instruction right">
+    <div class="right" style="background-image: linear-gradient(-225deg, rgba(227,246,228,0.5) 0%, rgba(227,246,228,0.4) 50%), url('<%=asset_path 'allergy.png' %>');"></div>
+
+    <%#= image_tag("allergy", {class: "app-image"}) %>
+    <h3>Add an allergy</h3>
+  </div>
+  <div class="app-instruction left">
+    <h3>Translate your allergy</h3>
+    <div class="left" style="background-image: linear-gradient(-225deg, rgba(227,246,228,0.5) 0%, rgba(227,246,228,0.8) 50%), url('<%=asset_path 'translate.png' %>');"></div>
+  </div>
+  <div class="app-instruction right">
+    <div class="right" style="background-image: linear-gradient(-225deg, rgba(227,246,228,0.5) 0%, rgba(227,246,228,0.3) 50%), url('<%=asset_path 'image.png' %>');"></div>
+
+    <h3>Show an image of your allergy</h3>
+  </div>
+  <div class="app-instruction left">
+    <h3>Add emergency contacts</h3>
+    <div class="left image-last" style="background-image: linear-gradient(-225deg, rgba(227,246,228,0.5) 0%, rgba(227,246,228,0.2) 50%), url('<%=asset_path 'phone.png' %>');"></div>
+
+  </div>
+</div>

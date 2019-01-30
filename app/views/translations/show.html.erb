@@ -9,7 +9,7 @@
     <div class="all-translations">
       <div class="translation-image">
         <h2 class="translation-name"><%= @translation.name %>
-          <% unless @translation.allergy.photo.file.nil? %>
+          <% if !@translation.allergy.photo.file.nil? %>
           <label class="switch">
             <input type="checkbox" class="toggle-switch">
             <span class="slider round"></span>
@@ -17,8 +17,10 @@
         </h2>
       </div>
       <%= cl_image_tag @translation.allergy.photo, height: 300, width: 300, crop: :fit, class: "allergy-image hidden fadein" %>
-      <% end %>
-    </div>
+      <% else %>
+    </h2>
   </div>
+  <% end %>
 </div>
-<!-- </div> -->
+</div>
+</div>
